@@ -29,8 +29,8 @@
                       <td><?= $projet->nom() ?></td>
                       <td><?= $projet->lien()  ?></td>
                       <td><?= $projet->description()  ?></td>
-                      <td><a href="index.php?p=delet&id=<?= $projet->id() ?>"><i class="fas fa-folder-minus"></i></a></td>
-                      <td><a href="dashboard.php?p=edit&id=<?= $projet->id() ?>"> <i class="fas fa-user-edit"></i></a></td>
+                      <td><a href="dashboard&projet=delet&id=<?= $projet->id() ?>"><i class="fas fa-folder-minus"></i></a></td>
+                      <td><a href="dashboard&projet=update&id=<?= $projet->id() ?>"> <i class="fas fa-user-edit"></i></a></td>
                     </tr>
                 <?php endforeach;
                 endif; ?>

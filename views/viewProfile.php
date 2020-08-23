@@ -43,7 +43,7 @@
                   <tr>
                     <th scope="row"><?= $key + 1 ?></th>
                     <td><?= $softskill->softskills() ?></td>
-                    <td><a href="dashboard.php?p=editcv&id=&type=softskills"><i class="fas fa-folder-minus"></i></a></td>
+                    <td><a href=""><i class="fas fa-folder-minus"></i></a></td>
                   </tr>
               <?php endforeach;
               endif; ?>

@@ -59,7 +59,18 @@ abstract class Model
     return $var;
     $req->closeCursor();
   }
+  protected function getOne($table, $type, $id, $obj)
+  {
+    $this->getBdd();
+    $var = [];
+    $req = self::$_bdd->prepare('SELECT * FROM ' . $table . ' WHERE ' . $type . ' = :id');
+    $req->bindValue(":id", $id);
+    $req->execute();
+    while ($data = $req->fetch(PDO::FETCH_ASSOC)) {
+      $var[] = new $obj($data);
+    }
 
-  //// CONTACT
-
+    return $var;
+    $req->closeCursor();
+  }
 }

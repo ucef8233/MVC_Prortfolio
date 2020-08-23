@@ -29,7 +29,7 @@ class View
     if ($this->action  == 'Contact' || $this->action  == 'Login' || $this->action  == 'Error') {
       $this->action = 'Accueil';
     }
-    if ($this->action  == 'Profile') {
+    if ($this->action  == 'Profile' || $this->action  == 'Update') {
       $this->action = 'Dashboard';
     }
     $view = $this->generateFile('views/templates/' . $this->action . '.php', array('t' => $this->_t, 'content' => $content, 'css' => $this->_css));

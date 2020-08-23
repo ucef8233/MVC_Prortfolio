@@ -12,7 +12,7 @@ require_once 'views/View.php';
 class ControllerAccueil
 {
   private $_projetManager;
-  private $_contacttManager;
+  // private $_contacttManager;
   private $_cvManager;
   private $_langageManager;
   private $_softskillsManager;

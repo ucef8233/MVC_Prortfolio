@@ -11,15 +11,22 @@ require_once 'views/View.php';
 class ControllerDashboard
 {
   private $_projetManager;
+  private $_edittManager;
   private $_cvManager;
+  private $_langageManager;
+  private $_softskillsManager;
+  private $_etudeManager;
+  private $_experianceManager;
   private $_view;
 
   public function __construct()
   {
     if (isset($url) && count($url) > 1) {
       throw new \Exception("Page introuvable", 1);
-    } elseif (isset($_GET['profile']) && $_GET['profile'] == 'update') {
+    } elseif (isset($_GET['profile']) && $_GET['profile'] == 'delet') {
       $this->profile();
+    } elseif (isset($_GET['projet']) && $_GET['projet'] == 'update') {
+      $this->projetUpdate();
     } else {
       $this->projets();
     }
@@ -35,6 +42,16 @@ class ControllerDashboard
       header('location:Login');
     endif;
   }
+
+  private function projetUpdate()
+  {
+    $this->_edittManager = new EditManager;
+    $projets = $this->_edittManager->getProjets($_GET['id']);
+    $this->_view = new View('Update', 'demo');
+    $this->_view->generate(array('projets' => $projets));
+  }
+
+
   private function profile()
   {
 

@@ -73,7 +73,7 @@
           </li>
           <li class="nav-item <?php if (isset($_GET['p']) && ($_GET['p'] == "add")) : echo "active";
                               endif; ?>  ">
-            <a class="nav-link" href="dashboard.php?p=add">
+            <a class="nav-link" href="dashboard&projet=add">
               <i class="fas fa-folder-plus"></i>
               <p>Ajouter un Projet</p>
             </a>
