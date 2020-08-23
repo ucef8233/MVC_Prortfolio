@@ -26,7 +26,7 @@ class ControllerDashboard
   {
     if (isset($url) && count($url) > 1) {
       throw new \Exception("Page introuvable", 1);
-    } elseif (isset($_GET['profile']) && $_GET['profile'] == 'update') {
+    } elseif (isset($_GET['profile'])) {
       $this->profile();
     } elseif (isset($_GET['projet']) && $_GET['projet'] == 'update') {
       $this->projetUpdate();

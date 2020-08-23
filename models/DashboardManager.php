@@ -4,7 +4,7 @@
 /**
  *
  */
-class DashboardManager extends SetterDefault
+class DashboardManager extends DefaultGetter
 {
   /// RECUPERER UN PROJET
   public function updateProjets($id)
@@ -13,5 +13,6 @@ class DashboardManager extends SetterDefault
   }
   public function addProjets()
   {
+    return $this->getAdd('projet', 'id', $id, 'Projet');
   }
 }

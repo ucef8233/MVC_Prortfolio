@@ -43,6 +43,7 @@ class View
   }
 
 
+
   //// RECUPERER TEMPLATE
   private function generateFile($file, $data)
   {

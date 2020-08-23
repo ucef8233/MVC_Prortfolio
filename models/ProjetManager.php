@@ -4,7 +4,7 @@
 /**
  *
  */
-class ProjetManager extends SetterDefault
+class ProjetManager extends DefaultGetter
 {
   /// GET ALL PROJETS
   public function getProjets()
@@ -31,7 +31,7 @@ class ProjetManager extends SetterDefault
   {
     return $this->getJoin('etudes');
   }
-  //// GET EXPERIANCES ADMIN
+  //// GET LANGEGES ADMIN
   public function getExperiance()
   {
     return $this->getJoin('experiances');

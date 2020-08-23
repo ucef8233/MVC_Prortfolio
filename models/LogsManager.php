@@ -4,7 +4,7 @@
 /**
  *
  */
-class LogsManager extends SetterLogs
+class LogsManager extends LogsSetter
 {
   /// ENVOI MAIL
   public function getContact()

@@ -2,7 +2,7 @@
 
 
 
-abstract class SetterDefault
+abstract class DefaultGetter
 {
 
   private static $_bdd;

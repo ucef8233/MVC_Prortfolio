@@ -2,7 +2,7 @@
 
 
 
-class SetterLogs extends SetterDefault
+class LogsSetter extends DefaultGetter
 {
   /// CONTACT
   protected function getMail()
