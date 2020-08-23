@@ -5,7 +5,7 @@
 abstract class DefaultGetter
 {
 
-  private static $_bdd;
+  protected static $_bdd;
 
   //connexion a la bdd
 
@@ -73,23 +73,6 @@ abstract class DefaultGetter
     }
 
     return $var;
-    $req->closeCursor();
-  }
-  /// GET ADD 
-  protected function getAdd($table, $champs)
-  {
-    $this->getBdd();
-    $implodeColumns = implode(', ', array_keys($champs));
-    $implodePlaceholder = implode(", :", array_keys($champs));
-    $req = self::$_bdd->prepare('INSERT INTO ' . $table . ' (' . $implodeColumns . ') VALUES (:' . $implodePlaceholder . ')');
-    foreach ($champs as $key => $value) :
-      $req->bindValue(':' . $key, $value);
-    endforeach;
-    $reqExec = $req->execute();
-    if ($reqExec) :
-      header('Location:dashboard?add=ok');
-    endif;
-
     $req->closeCursor();
   }
 }

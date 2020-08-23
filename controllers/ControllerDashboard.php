@@ -32,6 +32,8 @@ class ControllerDashboard
       $this->projetUpdate();
     } elseif (isset($_GET['projet']) && $_GET['projet'] == 'add') {
       $this->projetAdd();
+    } elseif (isset($_GET['projet']) && $_GET['projet'] == 'delet') {
+      $this->projetDelet();
     } else {
       $this->projets();
     }
@@ -57,14 +59,23 @@ class ControllerDashboard
     $this->_view->generate(array('projets' => $projets));
   }
   /// CONTROLLER ADD PROJETS
+
   private function projetAdd()
   {
     $this->_addManager = new DashboardManager;
-    $projets = $this->_addManager->addProjets();
+    $projets = $this->_addManager->setProjet();
     $this->_view = new View('Add', 'demo');
     $this->_view->generate(array('projets' => $projets));
   }
-
+  ////// CONTROLLER DELET PROJET
+  private function projetDelet()
+  {
+    $this->_deletManager = new DashboardManager;
+    $projets = $this->_deletManager->setProjet();
+    $this->_view = new View('Add', 'demo');
+    $this->_view->generate(array('projets' => $projets));
+  }
+  
   ////CONTROLLER READ PROFILE
   private function profile()
   {
@@ -92,4 +103,6 @@ class ControllerDashboard
       'experiances' => $experiances
     ));
   }
+
+  // avoir un tableau default manager qui gere le cv et les inner join a la fois
 }
