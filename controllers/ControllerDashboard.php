@@ -25,61 +25,54 @@ class ControllerDashboard
    */
   public function __construct()
   {
-    if (isset($url) && count($url) > 1) {
-      throw new \Exception("Page introuvable", 1);
-    } elseif (isset($_GET['profile'])) {
-      $this->profile();
-    } elseif (isset($_GET['projet']) && $_GET['projet'] == 'update') {
-      $this->projetUpdate();
-    } elseif (isset($_GET['projet']) && $_GET['projet'] == 'add') {
-      $this->projetAdd();
-    } elseif (isset($_GET['projet']) && $_GET['projet'] == 'delet') {
-      $this->projetDelet();
-    } else {
-      $this->projets();
-    }
-  }
-  //// CONTROLLER READ PROJETS
-  private function projets()
-  {
     if (isset($_SESSION['log']) && isset($_SESSION['mdp'])) :
-      $this->_projetManager = new ProjetManager;
-      $projets = $this->_projetManager->getProjets();
-      $this->_view = new View('Dashboard', 'demo');
-      $this->_view->generate(array('projets' => $projets));
+      if (isset($url) && count($url) > 1) {
+        throw new \Exception("Page introuvable", 1);
+      } elseif (isset($_GET['profile'])) {
+        $this->profile();
+      } else {
+        $this->projets();
+      }
     else :
       header('location:Login');
     endif;
   }
-  //// CONTROLLER UPDATE PROJETS
-  private function projetUpdate()
+  //////////////////////////////////////////////////////////////////////////PROJETS
+  //// CONTROLLER  PROJETS 
+  private function projets()
   {
-    $this->_editManager = new DashboardManager;
-    $projets = $this->_editManager->updateProjets($_GET['id']);
-    $this->_view = new View('Update', 'demo');
-    $this->_view->generate(array('projets' => $projets));
-  }
-  /// CONTROLLER ADD PROJETS
+    ///////////////////// DELET PROJET
+    if (isset($_GET['projet']) && $_GET['projet'] == 'delet') :
+      $this->_deletManager = new DashboardManager;
+      $this->_deletManager->deletProjet($_GET['id']);
+    endif;
 
-  private function projetAdd()
-  {
-    $this->_addManager = new DashboardManager;
-    $projets = $this->_addManager->setProjet();
-    $this->_view = new View('Add', 'demo');
-    $this->_view->generate(array('projets' => $projets));
-  }
-  ////// CONTROLLER DELET PROJET
-  private function projetDelet()
-  {
-    $this->_deletManager = new DashboardManager;
-    $projets = $this->_deletManager->deletProjet($_GET['id']);
-    // $this->_projetManager = new ProjetManager;
-    // $projets = $this->_projetManager->getProjets();
-    $this->_view = new View('Dashboard', 'demo');
+    ///////////////////// ADD PROJET
+    if (isset($_GET['projet']) && $_GET['projet'] == 'add') :
+      $this->_addManager = new DashboardManager;
+      $projets = $this->_addManager->setProjet();
+      $this->_view = new View('Add', 'demo');
+
+
+    ///////////////////// UPDATE PROJET
+    elseif (isset($_GET['projet']) && $_GET['projet'] == 'update') :
+      $this->_editManager = new DashboardManager;
+      $projets = $this->_editManager->updateProjets($_GET['id']);
+      $this->_view = new View('Update', 'demo');
+
+
+    ///////////////////// READ PROJET
+    else :
+      $this->_projetManager = new ProjetManager;
+      $projets = $this->_projetManager->getProjets();
+      $this->_view = new View('Dashboard', 'demo');
+    endif;
     $this->_view->generate(array('projets' => $projets));
   }
 
-  ////CONTROLLER READ PROFILE
+
+  //////////////////////////////////////////////////////////////////////////PROJETS
+  //// CONTROLLER  PROJETS 
   private function profile()
   {
 
@@ -88,15 +81,11 @@ class ControllerDashboard
     $this->_softskillsManager = new ProjetManager;
     $this->_etudeManager = new ProjetManager;
     $this->_experianceManager = new ProjetManager;
-
-
     $infos = $this->_cvManager->getCv();
     $langages = $this->_langageManager->getLangage();
     $softskills = $this->_softskillsManager->getSoftskills();
     $etudes = $this->_etudeManager->getEtude();
     $experiances = $this->_experianceManager->getExperiance();
-
-
     $this->_view = new View('Profile', 'demo');
     $this->_view->generate(array(
       'infos' => $infos,
@@ -105,6 +94,9 @@ class ControllerDashboard
       'etudes' => $etudes,
       'experiances' => $experiances
     ));
+  }
+  private function  profilUpdate()
+  {
   }
 
   // avoir un tableau default manager qui gere le cv et les inner join a la fois

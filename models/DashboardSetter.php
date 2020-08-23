@@ -1,5 +1,5 @@
 <?php
-class DashboardSetter extends DashboardGetter
+class DashboardSetter extends DefaultGetter
 {
   protected function Test()
   {

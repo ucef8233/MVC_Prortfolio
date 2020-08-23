@@ -22,9 +22,7 @@ class ControllerContact
   private function contact()
   {
     $this->_contactManager = new LogsManager;
-
     $mail = $this->_contactManager->getContact();
-
     $this->_view = new View('Contact', 'contact');
     $this->_view->generate(array(
       'mail' => $mail
