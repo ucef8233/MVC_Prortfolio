@@ -14,4 +14,8 @@ class DashboardManager extends DashboardSetter
   {
     return $this->Add();
   }
+  public function deletProjet($id)
+  {
+    return $this->Delet($id, 'id', 'projet');
+  }
 }

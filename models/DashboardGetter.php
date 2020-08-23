@@ -30,4 +30,12 @@ abstract class DashboardGetter extends DefaultGetter
       header('Location:dashboard?edit=ok');
     endif;
   }
+  protected function Delet($id,  $where, $table)
+  {
+    $this->getBdd();
+    $req = self::$_bdd->prepare('DELETE  FROM ' . $table . ' WHERE ' . $where . ' = :id');
+    $req->bindValue(':id', $id);
+    $reqExec = $req->execute();
+    header('Location:dashboard?delet=ok');
+  }
 }

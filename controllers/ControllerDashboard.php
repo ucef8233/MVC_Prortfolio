@@ -13,6 +13,7 @@ class ControllerDashboard
   private $_projetManager;
   private $_editManager;
   private $_addManager;
+  private $_deletManager;
   private $_cvManager;
   private $_langageManager;
   private $_softskillsManager;
@@ -71,11 +72,13 @@ class ControllerDashboard
   private function projetDelet()
   {
     $this->_deletManager = new DashboardManager;
-    $projets = $this->_deletManager->setProjet();
-    $this->_view = new View('Add', 'demo');
+    $projets = $this->_deletManager->deletProjet($_GET['id']);
+    // $this->_projetManager = new ProjetManager;
+    // $projets = $this->_projetManager->getProjets();
+    $this->_view = new View('Dashboard', 'demo');
     $this->_view->generate(array('projets' => $projets));
   }
-  
+
   ////CONTROLLER READ PROFILE
   private function profile()
   {
