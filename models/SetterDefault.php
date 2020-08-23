@@ -2,7 +2,7 @@
 
 
 
-abstract class Model
+abstract class SetterDefault
 {
 
   private static $_bdd;
@@ -15,7 +15,7 @@ abstract class Model
     self::$_bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
   }
 
-
+  ///GETER DB
   protected function getBdd()
   {
     if (self::$_bdd == null) {
@@ -25,6 +25,7 @@ abstract class Model
   }
 
   /// COMMUNE
+  //// GET ALL
   protected function getAll($table, $obj = null)
   {
     $this->getBdd();
@@ -43,7 +44,7 @@ abstract class Model
     return $var;
     $req->closeCursor();
   }
-
+  ///GET JOIN FOR INFO ADMIN -------> a revoir pour une seul requete SQL POUR JOINTURE DE 5 table sans repetition
   protected function getJoin($join)
   {
     $this->getBdd();
@@ -59,6 +60,7 @@ abstract class Model
     return $var;
     $req->closeCursor();
   }
+  /// GET ONE ELEMENT 
   protected function getOne($table, $type, $id, $obj)
   {
     $this->getBdd();
@@ -71,6 +73,23 @@ abstract class Model
     }
 
     return $var;
+    $req->closeCursor();
+  }
+  /// GET ADD 
+  protected function getAdd($table, $champs)
+  {
+    $this->getBdd();
+    $implodeColumns = implode(', ', array_keys($champs));
+    $implodePlaceholder = implode(", :", array_keys($champs));
+    $req = self::$_bdd->prepare('INSERT INTO ' . $table . ' (' . $implodeColumns . ') VALUES (:' . $implodePlaceholder . ')');
+    foreach ($champs as $key => $value) :
+      $req->bindValue(':' . $key, $value);
+    endforeach;
+    $reqExec = $req->execute();
+    if ($reqExec) :
+      header('Location:dashboard?add=ok');
+    endif;
+
     $req->closeCursor();
   }
 }

@@ -10,17 +10,17 @@
             <form method="POST">
               <div class="row">
                 <input type="text" class="x" name="id_admin" value="<?= $infos[0]->idadmin() ?>" required>
-                <?= Form::input("5", "Nom", "nom_user", $infos[0]->nom()) ?>
-                <?= Form::input("3", "Titre", "titre_user", $infos[0]->titre()) ?>
-                <?= Form::input("4", "Email", "mail_user", $infos[0]->mail()) ?>
+                <?= Html::input("5", "Nom", "nom_user", $infos[0]->nom()) ?>
+                <?= Html::input("3", "Titre", "titre_user", $infos[0]->titre()) ?>
+                <?= Html::input("4", "Email", "mail_user", $infos[0]->mail()) ?>
               </div>
               <div class="row">
-                <?= Form::input("12", "Adress", "adress_user", $infos[0]->adress()) ?>
+                <?= Html::input("12", "Adress", "adress_user", $infos[0]->adress()) ?>
                 <button type="submit" name="editprofil" class="btn btn-primary pull-right">Update Profile</button>
               </div>
             </form>
             <div class="row">
-              <?= Form::table_header('Experiances') ?>
+              <?= Html::table_header('Experiances') ?>
               <?php
               if ($experiances) :
                 foreach ($experiances as $key => $experiance) : ?>
@@ -32,11 +32,11 @@
                   </tr>
               <?php endforeach;
               endif; ?>
-              <?= Form::table_footer() ?>
-              <?= Form::input("4", "Date", "experiance_date") ?>
-              <?= Form::input("8", "Description", "experiance_desc") ?>
-              <?= Form::form_footer("add_cv", "add Experiance") ?>
-              <?= Form::table_header('SoftSkils') ?>
+              <?= Html::table_footer() ?>
+              <?= Html::input("4", "Date", "experiance_date") ?>
+              <?= Html::input("8", "Description", "experiance_desc") ?>
+              <?= Html::form_footer("add_cv", "add Experiance") ?>
+              <?= Html::table_header('SoftSkils') ?>
               <?php
               if ($softskills) :
                 foreach ($softskills as $key => $softskill) : ?>
@@ -47,12 +47,12 @@
                   </tr>
               <?php endforeach;
               endif; ?>
-              <?= Form::table_footer() ?>
-              <?= Form::input("12", "Softskills", "softskills") ?>
-              <?= Form::form_footer("add_softskills", "add softskills") ?>
+              <?= Html::table_footer() ?>
+              <?= Html::input("12", "Softskills", "softskills") ?>
+              <?= Html::form_footer("add_softskills", "add softskills") ?>
             </div>
             <div class="row">
-              <?= Form::table_header('Education') ?>
+              <?= Html::table_header('Education') ?>
               <?php
               if ($etudes) :
                 foreach ($etudes as $key =>  $etude) : ?>
@@ -64,11 +64,11 @@
                   </tr>
               <?php endforeach;
               endif; ?>
-              <?= Form::table_footer() ?>
-              <?= Form::input("4", "Date", "etude_date") ?>
-              <?= Form::input("8", "Description", "etude_desc") ?>
-              <?= Form::form_footer("add_etude", "add education") ?>
-              <?= Form::table_header('Competences technique') ?>
+              <?= Html::table_footer() ?>
+              <?= Html::input("4", "Date", "etude_date") ?>
+              <?= Html::input("8", "Description", "etude_desc") ?>
+              <?= Html::form_footer("add_etude", "add education") ?>
+              <?= Html::table_header('Competences technique') ?>
               <?php
               if ($langages) :
                 foreach ($langages as $key =>  $langage) : ?>
@@ -79,9 +79,9 @@
                   </tr>
               <?php endforeach;
               endif; ?>
-              <?= Form::table_footer() ?>
-              <?= Form::input("12", "Competences technique", "langage") ?>
-              <?= Form::form_footer("add_langage", "add ompetences technique") ?>
+              <?= Html::table_footer() ?>
+              <?= Html::input("12", "Competences technique", "langage") ?>
+              <?= Html::form_footer("add_langage", "add ompetences technique") ?>
             </div>
           </div>
         </div>

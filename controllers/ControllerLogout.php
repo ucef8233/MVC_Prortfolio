@@ -1,9 +1,5 @@
 <?php
 
-
-
-
-
 class ControllerLogout
 {
   private $_logoutManager;
@@ -13,10 +9,11 @@ class ControllerLogout
 
     $this->logout();
   }
+  ////CONTROLLER LOGOUT 
   private function logout()
   {
 
-    $this->_logoutManager = new FormManager;
+    $this->_logoutManager = new LogsManager;
 
     $this->_logoutManager->getLogout();
   }

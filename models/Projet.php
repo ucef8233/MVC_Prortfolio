@@ -1,10 +1,5 @@
 <?php
-
-
-
-/**
- *
- */
+/// GETTER AND SETTER PROJETS
 class Projet
 {
 

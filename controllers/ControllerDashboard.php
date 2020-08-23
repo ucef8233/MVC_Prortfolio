@@ -11,7 +11,8 @@ require_once 'views/View.php';
 class ControllerDashboard
 {
   private $_projetManager;
-  private $_edittManager;
+  private $_editManager;
+  private $_addManager;
   private $_cvManager;
   private $_langageManager;
   private $_softskillsManager;
@@ -19,18 +20,23 @@ class ControllerDashboard
   private $_experianceManager;
   private $_view;
 
+  /**
+   */
   public function __construct()
   {
     if (isset($url) && count($url) > 1) {
       throw new \Exception("Page introuvable", 1);
-    } elseif (isset($_GET['profile']) && $_GET['profile'] == 'delet') {
+    } elseif (isset($_GET['profile']) && $_GET['profile'] == 'update') {
       $this->profile();
     } elseif (isset($_GET['projet']) && $_GET['projet'] == 'update') {
       $this->projetUpdate();
+    } elseif (isset($_GET['projet']) && $_GET['projet'] == 'add') {
+      $this->projetAdd();
     } else {
       $this->projets();
     }
   }
+  //// CONTROLLER READ PROJETS
   private function projets()
   {
     if (isset($_SESSION['log']) && isset($_SESSION['mdp'])) :
@@ -42,16 +48,24 @@ class ControllerDashboard
       header('location:Login');
     endif;
   }
-
+  //// CONTROLLER UPDATE PROJETS
   private function projetUpdate()
   {
-    $this->_edittManager = new EditManager;
-    $projets = $this->_edittManager->getProjets($_GET['id']);
+    $this->_editManager = new DashboardManager;
+    $projets = $this->_editManager->updateProjets($_GET['id']);
     $this->_view = new View('Update', 'demo');
     $this->_view->generate(array('projets' => $projets));
   }
+  /// CONTROLLER ADD PROJETS
+  private function projetAdd()
+  {
+    $this->_addManager = new DashboardManager;
+    $projets = $this->_addManager->addProjets();
+    $this->_view = new View('Add', 'demo');
+    $this->_view->generate(array('projets' => $projets));
+  }
 
-
+  ////CONTROLLER READ PROFILE
   private function profile()
   {
 

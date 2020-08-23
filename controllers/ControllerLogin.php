@@ -20,10 +20,11 @@ class ControllerLogin
       $this->login();
     }
   }
+  ////CONTROLLER LOGIN
   private function login()
   {
     if (!isset($_SESSION['log']) && !isset($_SESSION['mdp'])) :
-      $this->_loginManager = new FormManager;
+      $this->_loginManager = new LogsManager;
 
       $login = $this->_loginManager->getLogin();
 

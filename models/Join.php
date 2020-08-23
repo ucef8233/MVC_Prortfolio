@@ -1,5 +1,5 @@
 <?php
-
+//// CLASS JOIN ADMIN INFO
 class Join
 {
   private $_langage;

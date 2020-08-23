@@ -2,7 +2,7 @@
 
 
 
-class ModelForm extends Model
+class SetterLogs extends SetterDefault
 {
   /// CONTACT
   protected function getMail()

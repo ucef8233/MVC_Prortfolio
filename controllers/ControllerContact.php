@@ -8,7 +8,7 @@ require_once 'views/View.php';
  */
 class ControllerContact
 {
-  private $_contacttManager;
+  private $_contactManager;
 
   public function __construct()
   {
@@ -18,9 +18,10 @@ class ControllerContact
       $this->contact();
     }
   }
+  ////CONTROLLER CONTACT FORM
   private function contact()
   {
-    $this->_contactManager = new FormManager;
+    $this->_contactManager = new LogsManager;
 
     $mail = $this->_contactManager->getContact();
 

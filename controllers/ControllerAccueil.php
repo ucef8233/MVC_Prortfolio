@@ -28,6 +28,7 @@ class ControllerAccueil
       $this->Accueil();
     }
   }
+  //// CONTROLLER READ ACCUEIL
   private function Accueil()
   {
     $this->_projetManager = new ProjetManager;

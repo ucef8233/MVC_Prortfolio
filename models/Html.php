@@ -1,7 +1,7 @@
 <?php
 
-// classe qui genere des erreur html
-class Form
+// GENERATE HTML
+class Html
 {
   public static function input($md, $label, $name, $value = '')
   {
