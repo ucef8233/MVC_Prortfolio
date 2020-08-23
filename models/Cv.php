@@ -6,7 +6,7 @@
  */
 class Cv
 {
-  private $_id_admin;
+  private $_idadmin;
   private $_nom;
   private $_titre;
   private $_mail;
@@ -29,11 +29,11 @@ class Cv
   }
 
   //setters
-  public function setId($id_admin)
+  public function setId($idadmin)
   {
-    $id_admin = (int) $id_admin;
-    if ($id_admin > 0) {
-      $this->_id_admin = $id_admin;
+    $idadmin = (int) $idadmin;
+    if ($idadmin > 0) {
+      $this->_idadmin = $idadmin;
     }
   }
   public function setTitre($titre)
@@ -62,9 +62,9 @@ class Cv
   }
 
   //getters
-  public function id_admin()
+  public function idadmin()
   {
-    return $this->_id_admin;
+    return $this->_idadmin;
   }
 
   public function titre()
