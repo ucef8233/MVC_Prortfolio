@@ -8,10 +8,13 @@ passer le nom de la table projet en constructeur a la rasine
 twichia dial 
 HTML
 
+delet Join
+
+Erreur 
+
+js animation 
+
+icone hover ital3o lFo9
 
 
 
-<span class="code__ligne">..<span class="code__var">Nom</span> <span class="code__value"><?= $infos[0]->nom() ?></span> </span>
-<span class="code__ligne">..<span class="code__var">Titre</span>  <span class="code__value"><?= $infos[0]->titre() ?></span> </span>
-<span class="code__ligne">..<span class="code__var">Email</span><span class="code__value"><?= $infos[0]->mail() ?></span> </span>
-<span class="code__ligne">..<span class="code__var">Adresse</span> <span class="code__value"><?= $infos[0]->adress()?></span> </span>
