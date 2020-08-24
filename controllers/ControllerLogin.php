@@ -1,7 +1,9 @@
 <?php
 
+namespace App\Controllers;
 
-
+use App\Models\Managers\LogsManager;
+use App\Views\View;
 
 require_once 'views/View.php';
 
@@ -14,7 +16,7 @@ class ControllerLogin
 
   public function __construct()
   {
-    if (isset($url) && count($url) > 4) {
+    if (isset($url) && count($url) > 1) {
       throw new \Exception("Page introuvable", 1);
     } else {
       $this->login();

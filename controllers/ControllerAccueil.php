@@ -1,7 +1,10 @@
 <?php
 
+namespace App\Controllers;
 
-require_once 'views/View.php';
+use App\Models\Managers\CvManager;
+use App\Views\View;
+
 
 
 

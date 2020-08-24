@@ -1,5 +1,7 @@
 <?php
 
+namespace App\Models;
+
 // GENERATE HTML
 class Html
 {

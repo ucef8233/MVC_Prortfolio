@@ -1,4 +1,13 @@
 <?php
+
+namespace App\Models;
+
+use App\Models\Hydrate\Projet;
+use App\Models\Hydrate\Join;
+use App\Models\Hydrate\Cv;
+
+
+
 abstract class DefaultGetter
 {
 
@@ -8,8 +17,8 @@ abstract class DefaultGetter
 
   private static function setBdd(): void
   {
-    self::$_bdd = new PDO('mysql:host=localhost;dbname=portfolio;charset=utf8', 'root', '');
-    self::$_bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
+    self::$_bdd = new \PDO('mysql:host=localhost;dbname=portfolio;charset=utf8', 'root', '');
+    self::$_bdd->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_WARNING);
   }
 
   ///GETER DB
@@ -29,15 +38,21 @@ abstract class DefaultGetter
     $var = [];
     $req = self::$_bdd->prepare('SELECT * FROM ' . $table . '');
     $req->execute();
-
-    while ($data = $req->fetch(PDO::FETCH_ASSOC)) {
-      if ($obj !== null) :
-        $var[] = new $obj($data);
-      else :
-        $var =  $data;
-      endif;
+    while ($data = $req->fetch(\PDO::FETCH_ASSOC)) {
+      switch ($obj) {
+        case "Projet":
+          $var[] = new Projet($data);
+          break;
+        case "Cv":
+          $var[] = new Cv($data);
+          break;
+        case "Join":
+          $var[] = new Join($data);
+          break;
+        default:
+          $var =  $data;
+      }
     }
-
     return $var;
     $req->closeCursor();
   }
@@ -49,7 +64,7 @@ abstract class DefaultGetter
     $req = self::$_bdd->prepare('SELECT * FROM info_admin AS i INNER JOIN ' . $join . ' AS j ON i.id_admin = j.info_admin');
     $req->execute();
 
-    while ($data = $req->fetch(PDO::FETCH_ASSOC)) {
+    while ($data = $req->fetch(\PDO::FETCH_ASSOC)) {
       $var[] = new  Join($data);
     }
     return $var;
@@ -63,8 +78,20 @@ abstract class DefaultGetter
     $req = self::$_bdd->prepare('SELECT * FROM ' . $table . ' WHERE ' . $type . ' = :id');
     $req->bindValue(":id", $id);
     $req->execute();
-    while ($data = $req->fetch(PDO::FETCH_ASSOC)) {
-      $var[] = new $obj($data);
+    while ($data = $req->fetch(\PDO::FETCH_ASSOC)) {
+      switch ($obj) {
+        case "Projet":
+          $var[] = new Projet($data);
+          break;
+        case "Cv":
+          $var[] = new Cv($data);
+          break;
+        case "Join":
+          $var[] = new Join($data);
+          break;
+        default:
+          $var =  $data;
+      }
     }
     return $var;
     $req->closeCursor();

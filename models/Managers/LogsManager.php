@@ -1,5 +1,8 @@
 <?php
 
+namespace App\Models\Managers;
+
+use App\Models\Setters\LogsSetter;
 
 /**
  *

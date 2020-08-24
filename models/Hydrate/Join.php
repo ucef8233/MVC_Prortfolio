@@ -1,5 +1,9 @@
 <?php
 //// CLASS JOIN info admin
+
+
+namespace App\Models\Hydrate;;
+
 class Join
 {
   private $_id_experiance;

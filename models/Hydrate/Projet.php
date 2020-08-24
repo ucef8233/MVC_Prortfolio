@@ -1,5 +1,8 @@
 <?php
 /// GETTER AND SETTER PROJETS
+
+namespace App\Models\Hydrate;
+
 class Projet
 {
 

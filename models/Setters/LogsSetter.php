@@ -1,6 +1,9 @@
 <?php
 
 
+namespace App\Models\Setters;
+
+use App\Models\DefaultGetter;
 
 class LogsSetter extends DefaultGetter
 {

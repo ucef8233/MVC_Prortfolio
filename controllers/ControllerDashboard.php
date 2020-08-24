@@ -1,8 +1,14 @@
 <?php
 
 
+namespace App\Controllers;
 
-require_once 'views/View.php';
+
+use App\Models\Managers\CvManager;
+use App\Models\Managers\ProjetManager;
+use App\Views\View;
+
+// require_once 'views/View.php';
 
 
 /**

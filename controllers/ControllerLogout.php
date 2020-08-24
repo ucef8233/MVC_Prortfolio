@@ -1,5 +1,9 @@
 <?php
 
+namespace App\Controllers;
+
+use App\Models\Managers\LogsManager;
+
 class ControllerLogout
 {
   private $_logoutManager;

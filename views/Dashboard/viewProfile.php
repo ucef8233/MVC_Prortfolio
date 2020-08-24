@@ -1,3 +1,7 @@
+<?php
+
+use App\Models\Html;
+?>
 <div class="content">
   <div class="container-fluid">
     <div class="row">

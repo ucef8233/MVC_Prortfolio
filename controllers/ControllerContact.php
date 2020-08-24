@@ -1,8 +1,12 @@
 <?php
 
 
+namespace App\Controllers;
 
-require_once 'views/View.php';
+use App\Models\Managers\LogsManager;
+use App\Views\View;
+
+// require_once 'views/View.php';
 /**
  *
  */
@@ -21,7 +25,7 @@ class ControllerContact
   ////CONTROLLER CONTACT FORM
   private function contact()
   {
-    $this->_contactManager = new LogsManager;
+    $this->_contactManager = new LogsManager();
     $mail = $this->_contactManager->getContact();
     $this->_view = new View('Contact', 'contact');
     $this->_view->generate(array(

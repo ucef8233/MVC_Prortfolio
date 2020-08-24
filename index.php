@@ -1,9 +1,11 @@
 <?php
 
+
+
+
+use \App\Controllers\Router;
+
 session_start();
-
-require_once('controllers/Router.php');
-
-$router = new Router();
-
+require('vendor/autoload.php');
+$router = new Router;
 $router->routeReq();
