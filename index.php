@@ -1,8 +1,5 @@
 <?php
 
-
-
-
 use \App\Controllers\Router;
 
 session_start();
