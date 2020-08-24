@@ -48,9 +48,12 @@
 
 
 <nav class="menu none">
-  <a class="display__menu display__menu--acceuil active" href="#Acceuil"><i class="fas fa-home"></i><span class="span__acceuil">Acceuil</span></a>
-  <a class="display__menu display__menu--portfolio" href="#portfolio"><i class="fas fa-parking"></i><span class="span__portfolio">Portfolio</span></a>
-  <a class="display__menu display__menu--propos" href="#propos"><i class="fas fa-address-card"></i><span class="span__propos">A propos</span></a>
+  <a class="display__menu display__menu--acceuil active" href="#Acceuil"><i class="fas fa-home"></i><span
+      class="span__acceuil">Acceuil</span></a>
+  <a class="display__menu display__menu--portfolio" href="#portfolio"><i class="fas fa-parking"></i><span
+      class="span__portfolio">Portfolio</span></a>
+  <a class="display__menu display__menu--propos" href="#propos"><i class="fas fa-address-card"></i><span
+      class="span__propos">A propos</span></a>
 </nav>
 
 <!-- image social medial -->
@@ -74,28 +77,29 @@
         <h2> <i class="fas fa-folder-open"></i> Portfolio</h2>
         <ul class="projets">
           <?php if ($projets) : ?>
-            <?php foreach ($projets as $key => $projet) : ?>
-              <li class="onglets" data-anim="<?= $key + 1 ?>"> <i class="fas fa-folder"></i><?= $projet->nom() ?></li>
-            <?php endforeach; ?>
+          <?php foreach ($projets as $key => $projet) : ?>
+          <li class="onglets" data-anim="<?= $key + 1 ?>"> <i class="fas fa-folder"></i><?= $projet->nom() ?></li>
+          <?php endforeach; ?>
           <?php endif; ?>
         </ul>
       </div>
       <?php if ($projets) : ?>
-        <?php foreach ($projets as $key => $projet) : ?>
-          <div class="portfolio__cards contenu <?php if ($key == 0) : echo "activeContenu";
+      <?php foreach ($projets as $key => $projet) : ?>
+      <div class="portfolio__cards contenu <?php if ($key == 0) : echo "activeContenu";
                                                 endif; ?> " data-anim="<?= $key + 1 ?>">
-            <div class="portfolio__card">
-              <div class="portfolio__image">
-                <img src="views/assets/image/<?= $projet->image() ?>" alt="img portfolio">
-              </div>
-              <div class="portfolio__text">
-                <h2><?= $projet->nom() ?></h2>
-                <p><?= Html::limite_caractere($projet->description()) ?></p>
-              </div>
-            </div>
-            <a href="<?= $projet->lien() ?>" class="portfolio__btn">Découvrez le projet<i class="fas fa-angle-double-right"></i></a>
+        <div class="portfolio__card">
+          <div class="portfolio__image">
+            <img src="views/assets/image/<?= $projet->image() ?>" alt="img portfolio">
           </div>
-        <?php endforeach; ?>
+          <div class="portfolio__text">
+            <h2><?= $projet->nom() ?></h2>
+            <p><?= Html::limite_caractere($projet->description()) ?></p>
+          </div>
+        </div>
+        <a href="<?= $projet->lien() ?>" class="portfolio__btn">Découvrez le projet<i
+            class="fas fa-angle-double-right"></i></a>
+      </div>
+      <?php endforeach; ?>
       <?php endif; ?>
     </section>
   </div>

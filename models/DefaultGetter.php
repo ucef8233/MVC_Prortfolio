@@ -1,7 +1,4 @@
 <?php
-
-
-
 abstract class DefaultGetter
 {
 
@@ -53,10 +50,8 @@ abstract class DefaultGetter
     $req->execute();
 
     while ($data = $req->fetch(PDO::FETCH_ASSOC)) {
-
       $var[] = new  Join($data);
     }
-
     return $var;
     $req->closeCursor();
   }
@@ -86,10 +81,11 @@ abstract class DefaultGetter
     endforeach;
     $reqExec = $req->execute();
     if ($reqExec) :
-      if ($table == 'projet')
-        header('Location:dashboard?add=ok');
-      header('Location:dashboard&profile=add');
-
+      if ($table == 'projet') :
+        header('Location:dashboard?edit=ok');
+      else :
+        header('Location:dashboard&profile=update');
+      endif;
     endif;
 
     $req->closeCursor();
@@ -97,17 +93,21 @@ abstract class DefaultGetter
   protected function getUpdate(string $id, array $champs, string $table): void
   {
     $this->getBdd();
-    if ($table == 'profil')
+    if ($table == 'projet') :
       $req = self::$_bdd->prepare('UPDATE ' . $table . ' SET nom = :nom,image = :image, lien = :lien, description = :description WHERE id = ' . $id . '');
-    $req = self::$_bdd->prepare('UPDATE ' . $table . ' SET nom = :nom,titre = :titre, mail = :mail, adress = :adress WHERE id_admin = ' . $id . '');
+    else :
+      $req = self::$_bdd->prepare('UPDATE ' . $table . ' SET nom = :nom,titre = :titre, mail = :mail, adress = :adress WHERE id_admin = ' . $id . '');
+    endif;
     foreach ($champs as $key => $value) :
       $req->bindValue(':' . $key, $value);
     endforeach;
     $reqExec = $req->execute();
     if ($reqExec) :
-      if ($table == 'profil')
+      if ($table == 'projet') :
         header('Location:dashboard?edit=ok');
-      header('Location:dashboard&profile=update');
+      else :
+        header('Location:dashboard&profile=update');
+      endif;
     endif;
   }
   protected function Delet(string $id, string  $where, string $table)

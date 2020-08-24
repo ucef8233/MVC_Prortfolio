@@ -21,27 +21,30 @@
               <?php
               if ($experiances) :
                 foreach ($experiances as $key => $experiance) : ?>
-                  <tr>
-                    <th scope="row"><?= $key + 1 ?></th>
-                    <td><?= $experiance->date_experiance() ?></td>
-                    <td><?= $experiance->description_experiance() ?></td>
-                    <td><a href="dashboard&edit=profil&id="><i class="fas fa-folder-minus"></i></a></td>
-                  </tr>
+              <tr>
+                <th scope="row"><?= $key + 1 ?></th>
+                <td><?= $experiance->date_experiance() ?></td>
+                <td><?= $experiance->description_experiance() ?></td>
+                <td><a href="dashboard&profile=experiances&id=<?= $experiance->id_experiance() ?>"><i
+                      class="fas fa-folder-minus"></i></a>
+                </td>
+              </tr>
               <?php endforeach;
               endif; ?>
               <?= Html::table_footer() ?>
               <?= Html::input("4", "Date", "experiance_date") ?>
               <?= Html::input("8", "Description", "experiance_desc") ?>
               <?= Html::form_footer("add_cv", "add Experiance") ?>
-              <?= Html::table_header('SoftSkils') ?>
+              <?= Html::table_header('SoftSkills') ?>
               <?php
               if ($softskills) :
                 foreach ($softskills as $key => $softskill) : ?>
-                  <tr>
-                    <th scope="row"><?= $key + 1 ?></th>
-                    <td><?= $softskill->softskills() ?></td>
-                    <td><a href=""><i class="fas fa-folder-minus"></i></a></td>
-                  </tr>
+              <tr>
+                <th scope="row"><?= $key + 1 ?></th>
+                <td><?= $softskill->softskills() ?></td>
+                <td><a href="dashboard&profile=softskills&id=<?= $softskill->id_softskills() ?>"><i
+                      class="fas fa-folder-minus"></i></a></td>
+              </tr>
               <?php endforeach;
               endif; ?>
               <?= Html::table_footer() ?>
@@ -53,12 +56,14 @@
               <?php
               if ($etudes) :
                 foreach ($etudes as $key =>  $etude) : ?>
-                  <tr>
-                    <th scope="row"><?= $key + 1 ?></th>
-                    <td><?= $etude->date_etude(); ?></td>
-                    <td><?= $etude->description_etude(); ?></td>
-                    <td><a href="dashboard.php?p=editcv&id=&type=etudes"><i class="fas fa-folder-minus"></i></a></td>
-                  </tr>
+              <tr>
+                <th scope="row"><?= $key + 1 ?></th>
+                <td><?= $etude->date_etude(); ?></td>
+                <td><?= $etude->description_etude(); ?></td>
+                <td><a href="dashboard&profile=etudes&id=<?= $etude->id_etude() ?>"><i
+                      class="fas fa-folder-minus"></i></a>
+                </td>
+              </tr>
               <?php endforeach;
               endif; ?>
               <?= Html::table_footer() ?>
@@ -69,11 +74,13 @@
               <?php
               if ($langages) :
                 foreach ($langages as $key =>  $langage) : ?>
-                  <tr>
-                    <th scope="row"><?= $key + 1 ?></th>
-                    <td><?= $langage->langage(); ?></td>
-                    <td><a href="dashboard.php?p=editcv&id=&type=langages"><i class="fas fa-folder-minus"></i></a></td>
-                  </tr>
+              <tr>
+                <th scope="row"><?= $key + 1 ?></th>
+                <td><?= $langage->langage(); ?></td>
+                <td><a href="dashboard&profile=langages&id=<?= $langage->id_langage() ?>"><i
+                      class="fas fa-folder-minus"></i></a>
+                </td>
+              </tr>
               <?php endforeach;
               endif; ?>
               <?= Html::table_footer() ?>

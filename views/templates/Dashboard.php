@@ -60,21 +60,21 @@
         </a></div>
       <div class="sidebar-wrapper">
         <ul class="nav">
-          <li class="nav-item <?php if (!isset($_GET['p'])) : echo "active";
+          <li class="nav-item <?php if (!isset($_GET['profile']) && !isset($_GET['projet'])) : echo "active";
                               endif; ?>">
             <a class="nav-link" href="dashboard">
               <i class="material-icons">dashboard</i>
               <p>Dashboard</p>
             </a>
           </li>
-          <li class="nav-item <?php if (isset($_GET['p']) && ($_GET['p'] == "editcv")) : echo "active";
+          <li class="nav-item <?php if (isset($_GET['url']) && isset($_GET['profile'])) : echo "active";
                               endif; ?> ">
             <a class=" nav-link" href="dashboard&profile">
               <i class="material-icons">person</i>
               <p>Profile</p>
             </a>
           </li>
-          <li class="nav-item <?php if (isset($_GET['p']) && ($_GET['p'] == "add")) : echo "active";
+          <li class="nav-item <?php if (isset($_GET['projet']) && isset($_GET['url'])) : echo "active";
                               endif; ?>  ">
             <a class="nav-link" href="dashboard&projet=add">
               <i class="fas fa-folder-plus"></i>

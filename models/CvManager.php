@@ -45,4 +45,20 @@ class CvManager extends DashboardSetter
     return $this->updateCv($table);
   }
   ////DELETJOIN CV 
+  public function deletLangage($id)
+  {
+    return $this->Delet($id, 'id_langage', 'langages');
+  }
+  public function deletSoftskills($id)
+  {
+    return $this->Delet($id, 'id_softskills', 'softskills');
+  }
+  public function deletEtude($id)
+  {
+    return $this->Delet($id, 'id_etude', 'etudes');
+  }
+  public function deletExperiance($id)
+  {
+    return $this->Delet($id, 'id_experiance', 'experiances');
+  }
 }

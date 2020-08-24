@@ -49,7 +49,7 @@ class ControllerDashboard
     endif;
 
     ///////////////////// ADD PROJET
-    if (isset($_GET['url']) && $_GET['url'] == 'dashboard/add-projet') :
+    if (isset($_GET['projet']) && $_GET['projet'] == 'add') :
       $this->_addManager = new ProjetManager;
       $projets = $this->_addManager->setProjet();
       $this->_view = new View('Add', 'demo');
@@ -81,10 +81,18 @@ class ControllerDashboard
     $this->_softskillsManager = new CvManager;
     $this->_etudeManager = new CvManager;
     $this->_experianceManager = new CvManager;
+    if ($_GET['profile'] == 'langages')
+      $this->_langageManager->deletLangage($_GET['id']);
+    if ($_GET['profile'] == 'softskills')
+      $this->_softskillsManager->deletSoftskills($_GET['id']);
+    if ($_GET['profile'] == 'etudes')
+      $this->_etudeManager->deletEtude($_GET['id']);
+    if ($_GET['profile'] == 'experiances')
+      $this->_experianceManager->deletExperiance($_GET['id']);
+
     if ($_POST) :
       ///////////UPDATE INFO 
       $this->_cvManager->updateInfo('info_admin');
-      ///////////ADD JOIN 
       $this->_langageManager->addInfo('langages');
       $this->_softskillsManager->addInfo('softskills');
       $this->_etudeManager->addInfo('etudes');
