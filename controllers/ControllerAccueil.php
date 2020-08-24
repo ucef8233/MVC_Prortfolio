@@ -28,14 +28,14 @@ class ControllerAccueil
       $this->Accueil();
     }
   }
-  //// CONTROLLER READ ACCUEIL
+  //// CONTROLLER READ ACCUEIL  
   private function Accueil()
   {
     $this->_projetManager = new CvManager;
-    $this->_cvManager = new CvManager;
     $this->_langageManager = new CvManager;
-    $this->_softskillsManager = new CvManager;
     $this->_etudeManager = new CvManager;
+    $this->_cvManager = new CvManager;
+    $this->_softskillsManager = new CvManager;
     $this->_experianceManager = new CvManager;
 
 

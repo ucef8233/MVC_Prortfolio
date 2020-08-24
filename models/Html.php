@@ -50,7 +50,7 @@ class Html
 </div>
 </div>';
   }
-  public static function limite_caractere(string $chaine, $max = 70): string
+  public static function limite_caractere(string $chaine, $max = 70)
   {
     $chaine = strip_tags($chaine);
     if (strlen($chaine) >= $max) {

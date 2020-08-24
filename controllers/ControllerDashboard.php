@@ -23,10 +23,11 @@ class ControllerDashboard
 
   /**
    */
-  public function __construct()
+  public function __construct($url)
   {
+    $this->url = $url;
     if (isset($_SESSION['log']) && isset($_SESSION['mdp'])) :
-      if (isset($url) && count($url) > 1) {
+      if (isset($this->url) && count($url) < 1) {
         throw new \Exception("Page introuvable", 1);
       } elseif (isset($_GET['profile'])) {
         $this->profile();
@@ -48,7 +49,7 @@ class ControllerDashboard
     endif;
 
     ///////////////////// ADD PROJET
-    if (isset($_GET['projet']) && $_GET['projet'] == 'add') :
+    if (isset($_GET['url']) && $_GET['url'] == 'dashboard/add-projet') :
       $this->_addManager = new ProjetManager;
       $projets = $this->_addManager->setProjet();
       $this->_view = new View('Add', 'demo');

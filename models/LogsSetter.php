@@ -8,20 +8,21 @@ class LogsSetter extends DefaultGetter
   protected function getMail()
   {
     if (isset($_POST['sub_contact'])) :
-      ini_set("SMTP", "smtp.gmail.com");
-      ini_set("smtp_port", "25");
       $name = addslashes($_POST['name_contact']);
       $mail = addslashes($_POST['mail_contact']);
       $msg = addslashes($_POST['message_contact']);
-      $dist = "ucefsalim@gmail.com";
-      $sujet = "contact Form";
-      $msg = "Nouveau mail \n
+      $to  =  'tonadress@gmail.com';
+      $subject = "contact Form";
+      $message = "Nouveau mail \n
                Nom: $name \n
                Email: $mail\n
                Message: $msg ";
 
-      $entet = "From : $name \n  Reply-To: $mail";
-      mail($dist, $sujet, $msg, $entet);
+      $headers  = 'MIME-Version: 1.0' . "\r\n";
+      $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+      if (mail($to, $subject, $message, $headers)) {
+        echo '<p>Votre message a bien été envoy&eacute; à ' . $to . '. Merci.</p>';
+      }
     endif;
   }
 
