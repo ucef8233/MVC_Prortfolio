@@ -1,3 +1,7 @@
+<?php
+
+use App\Models\Html;
+?>
 <div class="content">
   <div class="container-fluid">
     <div class="row">
@@ -16,7 +20,8 @@
                 <div class="col-md-12">
                   <div class="custom-file">
                     <label class="custom-file-label  ">Ajouter une image pour le projet</label>
-                    <input type="file" class="custom-file-input" name="projet_image" accept="image/png, image/jpeg" required>
+                    <input type="file" class="custom-file-input" name="projet_image" accept="image/png, image/jpeg"
+                      required>
                   </div>
                 </div>
               </div>

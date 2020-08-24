@@ -1,8 +1,14 @@
 <?php
 
 
+namespace App\Controllers;
 
-require_once 'views/View.php';
+
+use App\Models\Managers\CvManager;
+use App\Models\Managers\ProjetManager;
+use App\Views\View;
+
+// require_once 'views/View.php';
 
 
 /**
@@ -23,10 +29,11 @@ class ControllerDashboard
 
   /**
    */
-  public function __construct()
+  public function __construct($url)
   {
+    $this->url = $url;
     if (isset($_SESSION['log']) && isset($_SESSION['mdp'])) :
-      if (isset($url) && count($url) > 1) {
+      if (isset($this->url) && count($url) < 1) {
         throw new \Exception("Page introuvable", 1);
       } elseif (isset($_GET['profile'])) {
         $this->profile();
@@ -80,10 +87,18 @@ class ControllerDashboard
     $this->_softskillsManager = new CvManager;
     $this->_etudeManager = new CvManager;
     $this->_experianceManager = new CvManager;
+    if ($_GET['profile'] == 'langages')
+      $this->_langageManager->deletLangage($_GET['id']);
+    if ($_GET['profile'] == 'softskills')
+      $this->_softskillsManager->deletSoftskills($_GET['id']);
+    if ($_GET['profile'] == 'etudes')
+      $this->_etudeManager->deletEtude($_GET['id']);
+    if ($_GET['profile'] == 'experiances')
+      $this->_experianceManager->deletExperiance($_GET['id']);
+
     if ($_POST) :
       ///////////UPDATE INFO 
       $this->_cvManager->updateInfo('info_admin');
-      ///////////ADD JOIN 
       $this->_langageManager->addInfo('langages');
       $this->_softskillsManager->addInfo('softskills');
       $this->_etudeManager->addInfo('etudes');

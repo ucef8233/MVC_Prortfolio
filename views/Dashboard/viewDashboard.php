@@ -1,3 +1,7 @@
+<?php
+
+use App\Models\Html;
+?>
 <div class="content">
   <div class="container-fluid">
 
@@ -23,15 +27,18 @@
                 <?php
                 if ($projets) :
                   foreach ($projets as $key => $projet) : ?>
-                    <tr>
-                      <th scope="row"><?= $key + 1 ?></th>
-                      <td><img src="views/assets/image/<?= $projet->image() ?>" alt="image projet" width="500" height="300"></td>
-                      <td><?= $projet->nom() ?></td>
-                      <td><?= $projet->lien()  ?></td>
-                      <td><?= Html::limite_caractere($projet->description())  ?></td>
-                      <td><a href="dashboard&projet=delet&id=<?= $projet->id() ?>"><i class="fas fa-folder-minus"></i></a></td>
-                      <td><a href="dashboard&projet=update&id=<?= $projet->id() ?>"> <i class="fas fa-user-edit"></i></a></td>
-                    </tr>
+                <tr>
+                  <th scope="row"><?= $key + 1 ?></th>
+                  <td><img src="views/assets/image/<?= $projet->image() ?>" alt="image projet" width="500" height="300">
+                  </td>
+                  <td><?= $projet->nom() ?></td>
+                  <td><?= $projet->lien()  ?></td>
+                  <td><?= Html::limite_caractere($projet->description())  ?></td>
+                  <td><a href="dashboard&projet=delet&id=<?= $projet->id() ?>"><i class="fas fa-folder-minus"></i></a>
+                  </td>
+                  <td><a href="dashboard&projet=update&id=<?= $projet->id() ?>"> <i class="fas fa-user-edit"></i></a>
+                  </td>
+                </tr>
                 <?php endforeach;
                 endif; ?>
               </tbody>

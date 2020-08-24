@@ -1,7 +1,16 @@
 <?php
 //// CLASS JOIN info admin
+
+
+namespace App\Models\Hydrate;;
+
 class Join
 {
+  private $_id_experiance;
+  private $_id_softskills;
+  private $_id_langage;
+  private $_id_etude;
+
   private $_langage;
   private $_softskills;
   private $_date_etude;
@@ -22,6 +31,34 @@ class Join
       if (method_exists($this, $method)) {
         $this->$method($value);
       }
+    }
+  }
+  public function setId_experiance(int  $id_experiance): void
+  {
+    $id_experiance = (int) $id_experiance;
+    if ($id_experiance > 0) {
+      $this->_id_experiance = $id_experiance;
+    }
+  }
+  public function setId_softskills($id_softskills): void
+  {
+    $id_softskills = (int) $id_softskills;
+    if ($id_softskills > 0) {
+      $this->_id_softskills = $id_softskills;
+    }
+  }
+  public function setId_etude(int  $id_etude): void
+  {
+    $id_etude = (int) $id_etude;
+    if ($id_etude > 0) {
+      $this->_id_etude = $id_etude;
+    }
+  }
+  public function setId_langage(int  $id_langage): void
+  {
+    $id_langage = (int) $id_langage;
+    if ($id_langage > 0) {
+      $this->_id_langage = $id_langage;
     }
   }
   public function setLangage($langage)
@@ -60,6 +97,22 @@ class Join
   public function langage()
   {
     return $this->_langage;
+  }
+  public function id_softskills()
+  {
+    return $this->_id_softskills;
+  }
+  public function id_etude()
+  {
+    return $this->_id_etude;
+  }
+  public function id_langage()
+  {
+    return $this->_id_langage;
+  }
+  public function id_experiance()
+  {
+    return $this->_id_experiance;
   }
   public function softskills()
   {

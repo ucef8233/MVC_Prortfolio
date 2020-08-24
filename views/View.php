@@ -1,5 +1,6 @@
 <?php
 
+namespace App\Views;
 
 
 /**
@@ -18,7 +19,7 @@ class View
     if ($action  == 'Contact' || $action  == 'Login' || $action  == 'Error' || $action  == 'Accueil') {
       //// PATH REQUIRE VIEW ACCUEIL
       $this->_file = 'views/Accueil/view' . $action . '.php';
-    } elseif ($action  == 'Profile' || $action  == 'Update' || $action  == 'Add' || $action  == 'Dashboard') {
+    } elseif ($action  == 'Profile' || $action  == 'Update' || $action  == 'Add' || $action  == 'Delet' || $action  == 'Dashboard') {
       //// PATH REQUIRE VIEW DASHBOARD
       $this->_file = 'views/Dashboard/view' . $action . '.php';
     }
