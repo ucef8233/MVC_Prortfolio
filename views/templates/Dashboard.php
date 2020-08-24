@@ -66,7 +66,7 @@
           </li>
           <li class="nav-item <?php if (isset($_GET['p']) && ($_GET['p'] == "editcv")) : echo "active";
                               endif; ?> ">
-            <a class=" nav-link" href="dashboard&profile=update">
+            <a class=" nav-link" href="dashboard&profile">
               <i class="material-icons">person</i>
               <p>Profile</p>
             </a>

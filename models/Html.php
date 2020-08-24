@@ -50,4 +50,14 @@ class Html
 </div>
 </div>';
   }
+  public static function limite_caractere($chaine, $max = 70)
+  {
+    $chaine = strip_tags($chaine);
+    if (strlen($chaine) >= $max) {
+      $chaine = substr($chaine, 0, $max);
+      $espace = strrpos($chaine, " ");
+      $chaine = substr($chaine, 0, $espace) . " ...";
+    }
+    echo $chaine;
+  }
 }

@@ -1,39 +1,27 @@
 <?php
 
-
 /**
  *
  */
-class ProjetManager extends DefaultGetter
+class ProjetManager extends DashboardSetter
 {
-  /// GET ALL PROJETS
   public function getProjets()
   {
     return $this->getAll('projet', 'Projet');
   }
-  ///GET AMM INFO PERSO ADMIN
-  public function getCv()
+  /// UPDATE UN PROJET
+  public function updateProjets($id)
   {
-    return $this->getAll('info_admin', 'Cv');
+    return $this->Update($id);
   }
-  //// GET LANGEGES ADMIN
-  public function getLangage()
+  ///ADD PROJET
+  public function setProjet()
   {
-    return $this->getJoin('langages');
+    return $this->Add();
   }
-  //// GET SOFTSKILLS ADMIN
-  public function getSoftskills()
+  ////DELET PROJETS
+  public function deletProjet($id)
   {
-    return $this->getJoin('softskills');
-  }
-  //// GET ETUDES ADMIN
-  public function getEtude()
-  {
-    return $this->getJoin('etudes');
-  }
-  //// GET LANGEGES ADMIN
-  public function getExperiance()
-  {
-    return $this->getJoin('experiances');
+    return $this->Delet($id, 'id', 'projet');
   }
 }

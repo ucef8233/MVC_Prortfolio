@@ -31,12 +31,12 @@ class ControllerAccueil
   //// CONTROLLER READ ACCUEIL
   private function Accueil()
   {
-    $this->_projetManager = new ProjetManager;
-    $this->_cvManager = new ProjetManager;
-    $this->_langageManager = new ProjetManager;
-    $this->_softskillsManager = new ProjetManager;
-    $this->_etudeManager = new ProjetManager;
-    $this->_experianceManager = new ProjetManager;
+    $this->_projetManager = new CvManager;
+    $this->_cvManager = new CvManager;
+    $this->_langageManager = new CvManager;
+    $this->_softskillsManager = new CvManager;
+    $this->_etudeManager = new CvManager;
+    $this->_experianceManager = new CvManager;
 
 
     $projets = $this->_projetManager->getProjets();

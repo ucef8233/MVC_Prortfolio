@@ -1,7 +1,7 @@
 <?php
 class DashboardSetter extends DefaultGetter
 {
-  protected function Test()
+  private function Test()
   {
     $nom = addslashes($_POST['projet_name']);
     $lien = $_POST['projet_lien'];
@@ -15,6 +15,7 @@ class DashboardSetter extends DefaultGetter
     ];
     return $champs;
   }
+
   protected function Add()
   {
     if (isset($_POST['add'])) :
@@ -41,5 +42,71 @@ class DashboardSetter extends DefaultGetter
       $this->getUpdate($projetId, $champs, 'projet');
     endif;
     return $result;
+  }
+  private function Test2($table)
+  {
+    if ($table == "experiances") :
+      $date = addslashes($_POST['experiance_date']);
+      $description =  addslashes($_POST['experiance_desc']);
+      $champs = [
+        'date_experiance' => $date,
+        'description_experiance' =>  $description,
+        'info_admin' => "1"
+      ];
+    elseif ($table == "etudes") :
+      $date = addslashes($_POST['etude_date']);
+      $description =  addslashes($_POST['etude_desc']);
+      $champs = [
+        'date_etude' => $date,
+        'description_etude' =>  $description,
+        'info_admin' => "1"
+      ];
+    elseif ($table == "langages") :
+      $langage =  addslashes($_POST['langage']);
+      $champs = [
+        'langage' => $langage,
+        'info_admin' => "1"
+      ];
+    else :
+      $softskills =  addslashes($_POST['softskills']);
+      $champs = [
+        'softskills' => $softskills,
+        'info_admin' => "1"
+      ];
+    endif;
+    $this->getAdd($table, $champs);
+  }
+  protected  function addCv($table)
+  {
+    if ((isset($_POST['add_cv'])) && ($table == "experiances")) :
+      $this->Test2($table);
+    endif;
+    if ((isset($_POST['add_etude'])) && ($table == "etudes")) :
+      $this->Test2($table);
+    endif;
+    if ((isset($_POST['add_langage'])) && ($table == "langages")) :
+      $this->Test2($table);
+    endif;
+    if ((isset($_POST['add_softskills'])) && ($table == "softskills")) :
+      $this->Test2($table);
+    endif;
+  }
+  protected function updateCv()
+  {
+    if (isset($_POST['editprofil'])) :
+      $nom = addslashes($_POST['nom_user']);
+      $titre =  addslashes($_POST['titre_user']);
+      $mail = $_POST['mail_user'];
+      $adress = addslashes($_POST['adress_user']);
+      $champs = [
+        'nom' => $nom,
+        'titre' => $titre,
+        'mail' => $mail,
+        'adress' => $adress
+      ];
+      // $id = $_POST['idadmin'];
+      $this->getUpdate('1', $champs, 'info_admin');
+
+    endif;
   }
 }

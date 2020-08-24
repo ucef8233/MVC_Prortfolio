@@ -86,7 +86,10 @@ abstract class DefaultGetter
     endforeach;
     $reqExec = $req->execute();
     if ($reqExec) :
-      header('Location:dashboard?add=ok');
+      if ($table == 'projet')
+        header('Location:dashboard?add=ok');
+      header('Location:dashboard&profile=add');
+
     endif;
 
     $req->closeCursor();
@@ -94,13 +97,17 @@ abstract class DefaultGetter
   protected function getUpdate($id, $champs, $table)
   {
     $this->getBdd();
-    $req = self::$_bdd->prepare('UPDATE ' . $table . ' SET nom = :nom,image = :image, lien = :lien, description = :description WHERE id = ' . $id . '');
+    if ($table == 'profil')
+      $req = self::$_bdd->prepare('UPDATE ' . $table . ' SET nom = :nom,image = :image, lien = :lien, description = :description WHERE id = ' . $id . '');
+    $req = self::$_bdd->prepare('UPDATE ' . $table . ' SET nom = :nom,titre = :titre, mail = :mail, adress = :adress WHERE id_admin = ' . $id . '');
     foreach ($champs as $key => $value) :
       $req->bindValue(':' . $key, $value);
     endforeach;
     $reqExec = $req->execute();
     if ($reqExec) :
-      header('Location:dashboard?edit=ok');
+      if ($table == 'profil')
+        header('Location:dashboard?edit=ok');
+      header('Location:dashboard&profile=update');
     endif;
   }
   protected function Delet($id,  $where, $table)

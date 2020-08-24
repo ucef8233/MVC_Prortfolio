@@ -90,7 +90,7 @@
               </div>
               <div class="portfolio__text">
                 <h2><?= $projet->nom() ?></h2>
-                <p><?= $projet->description() ?></p>
+                <p><?= Html::limite_caractere($projet->description()) ?></p>
               </div>
             </div>
             <a href="<?= $projet->lien() ?>" class="portfolio__btn">Découvrez le projet<i class="fas fa-angle-double-right"></i></a>

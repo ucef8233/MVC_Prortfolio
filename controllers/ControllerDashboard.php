@@ -43,20 +43,20 @@ class ControllerDashboard
   {
     ///////////////////// DELET PROJET
     if (isset($_GET['projet']) && $_GET['projet'] == 'delet') :
-      $this->_deletManager = new DashboardManager;
+      $this->_deletManager = new ProjetManager;
       $this->_deletManager->deletProjet($_GET['id']);
     endif;
 
     ///////////////////// ADD PROJET
     if (isset($_GET['projet']) && $_GET['projet'] == 'add') :
-      $this->_addManager = new DashboardManager;
+      $this->_addManager = new ProjetManager;
       $projets = $this->_addManager->setProjet();
       $this->_view = new View('Add', 'demo');
 
 
     ///////////////////// UPDATE PROJET
     elseif (isset($_GET['projet']) && $_GET['projet'] == 'update') :
-      $this->_editManager = new DashboardManager;
+      $this->_editManager = new ProjetManager;
       $projets = $this->_editManager->updateProjets($_GET['id']);
       $this->_view = new View('Update', 'demo');
 
@@ -75,29 +75,35 @@ class ControllerDashboard
   //// CONTROLLER  PROJETS 
   private function profile()
   {
+    $this->_cvManager = new CvManager;
+    $this->_langageManager = new CvManager;
+    $this->_softskillsManager = new CvManager;
+    $this->_etudeManager = new CvManager;
+    $this->_experianceManager = new CvManager;
+    if ($_POST) :
+      $this->_cvManager->updateInfo('info_admin');
+      $this->_langageManager->addInfo('langages');
+      $this->_softskillsManager->addInfo('softskills');
+      $this->_etudeManager->addInfo('etudes');
+      $this->_experianceManager->addInfo('experiances');
+    else :
+      $infos = $this->_cvManager->getCv();
+      $langages = $this->_langageManager->getLangage();
+      $softskills = $this->_softskillsManager->getSoftskills();
+      $etudes = $this->_etudeManager->getEtude();
+      $experiances = $this->_experianceManager->getExperiance();
+      $this->_view = new View('Profile', 'demo');
+      $this->_view->generate(array(
+        'infos' => $infos,
+        'langages' => $langages,
+        'softskills' => $softskills,
+        'etudes' => $etudes,
+        'experiances' => $experiances
+      ));
+    endif;
+  }
 
-    $this->_cvManager = new ProjetManager;
-    $this->_langageManager = new ProjetManager;
-    $this->_softskillsManager = new ProjetManager;
-    $this->_etudeManager = new ProjetManager;
-    $this->_experianceManager = new ProjetManager;
-    $infos = $this->_cvManager->getCv();
-    $langages = $this->_langageManager->getLangage();
-    $softskills = $this->_softskillsManager->getSoftskills();
-    $etudes = $this->_etudeManager->getEtude();
-    $experiances = $this->_experianceManager->getExperiance();
-    $this->_view = new View('Profile', 'demo');
-    $this->_view->generate(array(
-      'infos' => $infos,
-      'langages' => $langages,
-      'softskills' => $softskills,
-      'etudes' => $etudes,
-      'experiances' => $experiances
-    ));
-  }
-  private function  profilUpdate()
-  {
-  }
+
 
   // avoir un tableau default manager qui gere le cv et les inner join a la fois
 }

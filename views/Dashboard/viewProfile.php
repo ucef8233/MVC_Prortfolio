@@ -9,14 +9,11 @@
           <div class="card-body">
             <form method="POST">
               <div class="row">
-                <input type="text" class="x" name="id_admin" value="<?= $infos[0]->idadmin() ?>" required>
                 <?= Html::input("5", "Nom", "nom_user", $infos[0]->nom()) ?>
                 <?= Html::input("3", "Titre", "titre_user", $infos[0]->titre()) ?>
                 <?= Html::input("4", "Email", "mail_user", $infos[0]->mail()) ?>
-              </div>
-              <div class="row">
-                <?= Html::input("12", "Adress", "adress_user", $infos[0]->adress()) ?>
-                <button type="submit" name="editprofil" class="btn btn-primary pull-right">Update Profile</button>
+                <?= Html::input("7", "Adress", "adress_user", $infos[0]->adress()) ?>
+                <button type="submit" name="editprofil" class="btn btn-primary col-md-4 ">Edit Profil</button>
               </div>
             </form>
             <div class="row">
@@ -28,7 +25,7 @@
                     <th scope="row"><?= $key + 1 ?></th>
                     <td><?= $experiance->date_experiance() ?></td>
                     <td><?= $experiance->description_experiance() ?></td>
-                    <td><a href="dashboard.php?p=editcv&id= ?>&type=experiances"><i class="fas fa-folder-minus"></i></a></td>
+                    <td><a href="dashboard&edit=profil&id="><i class="fas fa-folder-minus"></i></a></td>
                   </tr>
               <?php endforeach;
               endif; ?>
@@ -81,12 +78,12 @@
               endif; ?>
               <?= Html::table_footer() ?>
               <?= Html::input("12", "Competences technique", "langage") ?>
-              <?= Html::form_footer("add_langage", "add ompetences technique") ?>
+              <?= Html::form_footer("add_langage", "add competences technique") ?>
             </div>
+
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
 </div>
