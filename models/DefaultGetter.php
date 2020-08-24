@@ -9,7 +9,7 @@ abstract class DefaultGetter
 
   //connexion a la bdd
 
-  private static function setBdd()
+  private static function setBdd(): void
   {
     self::$_bdd = new PDO('mysql:host=localhost;dbname=portfolio;charset=utf8', 'root', '');
     self::$_bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
@@ -26,7 +26,7 @@ abstract class DefaultGetter
 
   /// COMMUNE
   //// GET ALL
-  protected function getAll($table, $obj = null)
+  protected function getAll(string $table, $obj = null)
   {
     $this->getBdd();
     $var = [];
@@ -45,7 +45,7 @@ abstract class DefaultGetter
     $req->closeCursor();
   }
   ///GET JOIN FOR INFO ADMIN -------> a revoir pour une seul requete SQL POUR JOINTURE DE 5 table sans repetition
-  protected function getJoin($join)
+  protected function getJoin(string $join)
   {
     $this->getBdd();
     $var = [];
@@ -61,7 +61,7 @@ abstract class DefaultGetter
     $req->closeCursor();
   }
   /// GET ONE ELEMENT 
-  protected function getOne($table, $type, $id, $obj)
+  protected function getOne(string $table, string $type, string $id, string $obj)
   {
     $this->getBdd();
     $var = [];
@@ -75,7 +75,7 @@ abstract class DefaultGetter
     $req->closeCursor();
   }
   /// GET ADD 
-  protected function getAdd($table, $champs)
+  protected function getAdd(string $table, array $champs): void
   {
     $this->getBdd();
     $implodeColumns = implode(', ', array_keys($champs));
@@ -94,7 +94,7 @@ abstract class DefaultGetter
 
     $req->closeCursor();
   }
-  protected function getUpdate($id, $champs, $table)
+  protected function getUpdate(string $id, array $champs, string $table): void
   {
     $this->getBdd();
     if ($table == 'profil')
@@ -110,7 +110,7 @@ abstract class DefaultGetter
       header('Location:dashboard&profile=update');
     endif;
   }
-  protected function Delet($id,  $where, $table)
+  protected function Delet(string $id, string  $where, string $table)
   {
     $this->getBdd();
     $req = self::$_bdd->prepare('DELETE  FROM ' . $table . ' WHERE ' . $where . ' = :id');

@@ -3,7 +3,7 @@
 // GENERATE HTML
 class Html
 {
-  public static function input($md, $label, $name, $value = '')
+  public static function input(string $md, string $label, string $name, string $value = ''): string
   {
     return '<div class="col-md-' . $md . '">
             <div class="form-group">
@@ -12,7 +12,7 @@ class Html
             </div>
             </div>';
   }
-  public static function textarea($name, $result = "")
+  public static function textarea(string $name, $result = ""): string
   {
     return ' <div class="col-md-12">
     <div class="form-group">
@@ -23,7 +23,7 @@ class Html
   }
 
 
-  public static function table_header($title)
+  public static function table_header(string $title): string
   {
     return ' <div class="col-lg-6 col-md-12">
   <div class="card">
@@ -41,7 +41,7 @@ class Html
     <form action="" method="post">
       <div class="row">';
   }
-  public static function form_footer($name, $title)
+  public static function form_footer(string $name, string $title): string
   {
     return '   </div>
     <button type="submit" name="' . $name . '" class="btn btn-primary col-md-4 ">' . $title . '</button>
@@ -50,7 +50,7 @@ class Html
 </div>
 </div>';
   }
-  public static function limite_caractere($chaine, $max = 70)
+  public static function limite_caractere(string $chaine, $max = 70): string
   {
     $chaine = strip_tags($chaine);
     if (strlen($chaine) >= $max) {

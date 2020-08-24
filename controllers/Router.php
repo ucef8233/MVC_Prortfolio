@@ -15,7 +15,7 @@ class Router
 
 
       //AUTOLOADER 
-      spl_autoload_register(function ($class) {
+      spl_autoload_register(function (string $class) {
         require_once('models/' . $class . '.php');
       });
 

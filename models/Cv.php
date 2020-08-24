@@ -18,7 +18,7 @@ class Cv
   }
 
   //hdratation
-  public function hydrate(array $data)
+  public function hydrate(array $data): void
   {
     foreach ($data as $key => $value) {
       $method = 'set' . ucfirst($key);
@@ -29,32 +29,32 @@ class Cv
   }
 
   //setters
-  public function setId($idadmin)
+  public function setId(int  $idadmin): void
   {
     $idadmin = (int) $idadmin;
     if ($idadmin > 0) {
       $this->_idadmin = $idadmin;
     }
   }
-  public function setTitre($titre)
+  public function setTitre(string $titre): void
   {
     if (is_string($titre))
       $this->_titre = $titre;
   }
 
-  public function setNom($nom)
+  public function setNom(string $nom): void
   {
     if (is_string($nom))
       $this->_nom = $nom;
   }
 
-  public function setMail($mail)
+  public function setMail(string $mail): void
   {
     if (filter_var($mail, FILTER_VALIDATE_EMAIL))
       $this->_mail = $mail;
   }
 
-  public function setAdress($adress)
+  public function setAdress(string $adress): void
   {
     if (is_string($adress)) {
       $this->_adress = $adress;

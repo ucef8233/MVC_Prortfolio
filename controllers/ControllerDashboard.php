@@ -81,11 +81,14 @@ class ControllerDashboard
     $this->_etudeManager = new CvManager;
     $this->_experianceManager = new CvManager;
     if ($_POST) :
+      ///////////UPDATE INFO 
       $this->_cvManager->updateInfo('info_admin');
+      ///////////ADD JOIN 
       $this->_langageManager->addInfo('langages');
       $this->_softskillsManager->addInfo('softskills');
       $this->_etudeManager->addInfo('etudes');
       $this->_experianceManager->addInfo('experiances');
+    ////////AFFICHAGE DES INFO PROFILE
     else :
       $infos = $this->_cvManager->getCv();
       $langages = $this->_langageManager->getLangage();

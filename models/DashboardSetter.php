@@ -1,7 +1,7 @@
 <?php
 class DashboardSetter extends DefaultGetter
 {
-  private function Test()
+  private function Test(): array
   {
     $nom = addslashes($_POST['projet_name']);
     $lien = $_POST['projet_lien'];
@@ -16,20 +16,18 @@ class DashboardSetter extends DefaultGetter
     return $champs;
   }
 
-  protected function Add()
+  protected function Add(): void
   {
     if (isset($_POST['add'])) :
       $champs = $this->Test();
       $result = $this->getOne('projet', 'nom', $champs['nom'], 'Projet');
-      if ($result) :
+      if ($result)
         header("location:dashboard&projet=add&error=exist");
-      else :
-        $this->getAdd('projet', $champs);
-      endif;
+      $this->getAdd('projet', $champs);
     endif;
   }
 
-  protected function Update($id)
+  protected function Update(int $id)
   {
     $projetId = $_GET['id'];
     if (!$projetId) :
@@ -38,12 +36,11 @@ class DashboardSetter extends DefaultGetter
     $result = $this->getOne('projet', 'id', $id, 'Projet');
     if (isset($_POST['edit'])) :
       $champs = $this->Test();
-      $id = $_POST['id'];
       $this->getUpdate($projetId, $champs, 'projet');
     endif;
     return $result;
   }
-  private function Test2($table)
+  private function Test2(string $table)
   {
     if ($table == "experiances") :
       $date = addslashes($_POST['experiance_date']);
@@ -76,7 +73,7 @@ class DashboardSetter extends DefaultGetter
     endif;
     $this->getAdd($table, $champs);
   }
-  protected  function addCv($table)
+  protected  function addCv(string $table): void
   {
     if ((isset($_POST['add_cv'])) && ($table == "experiances")) :
       $this->Test2($table);
@@ -91,7 +88,7 @@ class DashboardSetter extends DefaultGetter
       $this->Test2($table);
     endif;
   }
-  protected function updateCv()
+  protected function updateCv(): void
   {
     if (isset($_POST['editprofil'])) :
       $nom = addslashes($_POST['nom_user']);
