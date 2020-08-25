@@ -1,4 +1,4 @@
-<header class="header">
+<header id="acceuil" class="header">
 
   <!-- annimation js -->
 
@@ -52,7 +52,7 @@
 
 
 <nav class="menu none">
-  <a class="display__menu display__menu--acceuil active" href="#Acceuil"><i class="fas fa-home"></i><span
+  <a class="display__menu display__menu--acceuil active" href="#acceuil"><i class="fas fa-home"></i><span
       class="span__acceuil">Acceuil</span></a>
   <a class="display__menu display__menu--portfolio" href="#portfolio"><i class="fas fa-parking"></i><span
       class="span__portfolio">Portfolio</span></a>

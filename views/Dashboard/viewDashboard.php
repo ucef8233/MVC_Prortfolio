@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\Html;
+use App\Models\Html\{Form, Error};
 ?>
 <div class="content">
   <div class="container-fluid">
@@ -10,6 +10,9 @@ use App\Models\Html;
         <div class="card">
           <div class="card-header card-header-primary">
             <h4 class="card-title">Tableau des Projets</h4>
+            <?= Error::valid_edit("projet"); ?>
+            <?= Error::valid_add("projet") ?>
+            <?= Error::valid_delet("projet") ?>
           </div>
           <div class="card-body table-responsive">
             <table class="table table-hover">
@@ -33,7 +36,7 @@ use App\Models\Html;
                   </td>
                   <td><?= $projet->nom() ?></td>
                   <td><?= $projet->lien()  ?></td>
-                  <td><?= Html::limite_caractere($projet->description())  ?></td>
+                  <td><?= Form::limite_caractere($projet->description())  ?></td>
                   <td><a href="dashboard&projet=delet&id=<?= $projet->id() ?>"><i class="fas fa-folder-minus"></i></a>
                   </td>
                   <td><a href="dashboard&projet=update&id=<?= $projet->id() ?>"> <i class="fas fa-user-edit"></i></a>
