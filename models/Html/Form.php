@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\Html;
 
 // GENERATE HTML
-class Html
+class Form
 {
   public static function input(string $md, string $label, string $name, string $value = ''): string
   {

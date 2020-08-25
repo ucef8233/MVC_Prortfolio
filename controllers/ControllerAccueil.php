@@ -23,13 +23,14 @@ class ControllerAccueil
   private $_experianceManager;
   private $_view;
 
-  public function __construct()
+  public function __construct($url)
   {
-    if (isset($url) && count($url) > 1) {
-      throw new \Exception("Page introuvable", 1);
-    } else {
-      $this->Accueil();
-    }
+    // $this->url = $url;
+    // if (!isset($this->url) && count($url) !== 1) {
+    //   throw new \Exception("Page introuvable", 1);
+    // } else {
+    $this->Accueil();
+    // }
   }
   //// CONTROLLER READ ACCUEIL  
   private function Accueil()

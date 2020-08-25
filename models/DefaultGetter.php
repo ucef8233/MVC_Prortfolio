@@ -109,9 +109,9 @@ abstract class DefaultGetter
     $reqExec = $req->execute();
     if ($reqExec) :
       if ($table == 'projet') :
-        header('Location:dashboard?edit=ok');
+        header('Location:dashboard&projet=add');
       else :
-        header('Location:dashboard&profile=update');
+        header('Location:dashboard&profile=add');
       endif;
     endif;
 
@@ -131,7 +131,7 @@ abstract class DefaultGetter
     $reqExec = $req->execute();
     if ($reqExec) :
       if ($table == 'projet') :
-        header('Location:dashboard?edit=ok');
+        header('Location:dashboard&projet=update');
       else :
         header('Location:dashboard&profile=update');
       endif;
@@ -143,5 +143,12 @@ abstract class DefaultGetter
     $req = self::$_bdd->prepare('DELETE  FROM ' . $table . ' WHERE ' . $where . ' = :id');
     $req->bindValue(':id', $id);
     $reqExec = $req->execute();
+    if ($reqExec) :
+      if ($table == 'projet') :
+        header('Location:dashboard&projet=delet');
+      else :
+        header('Location:dashboard&profile=delet');
+      endif;
+    endif;
   }
 }

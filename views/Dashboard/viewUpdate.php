@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\Html;
+use App\Models\Html\{Form, Error};
 ?>
 <div class="content">
   <div class="container-fluid">
@@ -9,13 +9,16 @@ use App\Models\Html;
         <div class="card">
           <div class="card-header card-header-primary">
             <h4 class="card-title">Modifier le projet</h4>
+            <?= Error::valid_edit("Profil") ?>
+            <?= Error::valid_delet("Element") ?>
+            <?= Error::valid_add("Element") ?>
           </div>
           <div class="card-body">
             <form method="POST">
               <input class="x" type="text" name="id" value="<?= $projets[0]->id() ?>" required>
               <div class="row">
-                <?= Html::input("6", "Mon du projet", "projet_name", $projets[0]->nom()) ?>
-                <?= Html::input("6", "lien Github", "projet_lien", $projets[0]->lien()) ?>
+                <?= Form::input("6", "Mon du projet", "projet_name", $projets[0]->nom()) ?>
+                <?= Form::input("6", "lien Github", "projet_lien", $projets[0]->lien()) ?>
               </div>
               <div class="row">
                 <div class="col-md-12">
@@ -27,7 +30,7 @@ use App\Models\Html;
                 </div>
               </div>
               <div class="row">
-                <?= Html::textarea("projet_description", $projets[0]->description()) ?>
+                <?= Form::textarea("projet_description", $projets[0]->description()) ?>
               </div>
               <button type="submit" class="btn btn-primary pull-right" name="edit">Modifier Projet</button>
               <div class="clearfix"></div>

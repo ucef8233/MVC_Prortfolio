@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\Html;
+use App\Models\Html\{Form, Error};
 ?>
 <div class="content">
   <div class="container-fluid">
@@ -9,12 +9,13 @@ use App\Models\Html;
         <div class="card">
           <div class="card-header card-header-primary">
             <h4 class="card-title">Ajouter un projet</h4>
+            <?= Error::error_exist() ?>
           </div>
           <div class="card-body">
             <form method="POST">
               <div class="row">
-                <?= Html::input("6", "Mon du projet", "projet_name") ?>
-                <?= Html::input("6", "lien Github", "projet_lien") ?>
+                <?= Form::input("6", "Mon du projet", "projet_name") ?>
+                <?= Form::input("6", "lien Github", "projet_lien") ?>
               </div>
               <div class="row">
                 <div class="col-md-12">
@@ -26,7 +27,7 @@ use App\Models\Html;
                 </div>
               </div>
               <div class="row">
-                <?= Html::textarea("projet_description") ?>
+                <?= Form::textarea("projet_description") ?>
               </div>
               <button type="submit" class="btn btn-primary pull-right" name="add">Ajouter Projet</button>
               <!-- <div class="clearfix"></div> -->
