@@ -9,9 +9,6 @@ use App\Models\Html\{Form, Error};
         <div class="card">
           <div class="card-header card-header-primary">
             <h4 class="card-title">Modifier le projet</h4>
-            <?= Error::valid_edit("Profil") ?>
-            <?= Error::valid_delet("Element") ?>
-            <?= Error::valid_add("Element") ?>
           </div>
           <div class="card-body">
             <form method="POST">

@@ -109,9 +109,9 @@ abstract class DefaultGetter
     $reqExec = $req->execute();
     if ($reqExec) :
       if ($table == 'projet') :
-        header('Location:dashboard&projet=add');
+        header('Location:dashboard&projet&add=ok');
       else :
-        header('Location:dashboard&profile=add');
+        header('Location:dashboard&profile&add=ok');
       endif;
     endif;
 
@@ -131,9 +131,9 @@ abstract class DefaultGetter
     $reqExec = $req->execute();
     if ($reqExec) :
       if ($table == 'projet') :
-        header('Location:dashboard&projet=update');
+        header('Location:dashboard&projet&update=ok');
       else :
-        header('Location:dashboard&profile=update');
+        header('Location:dashboard&profile&update=ok');
       endif;
     endif;
   }
@@ -145,9 +145,9 @@ abstract class DefaultGetter
     $reqExec = $req->execute();
     if ($reqExec) :
       if ($table == 'projet') :
-        header('Location:dashboard&projet=delet');
+        header('Location:dashboard&projet&delet=ok');
       else :
-        header('Location:dashboard&profile=delet');
+        header('Location:dashboard&profile&delet=ok');
       endif;
     endif;
   }

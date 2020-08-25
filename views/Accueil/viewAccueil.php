@@ -13,7 +13,7 @@
       <a href="Contact">Contact</a>
       <a href="<?php
 
-                use App\Models\Html;
+                use App\Models\Html\Form;
 
                 if (!isset($_SESSION['log'])) :
                   echo "Login";
@@ -97,7 +97,7 @@
           </div>
           <div class="portfolio__text">
             <h2><?= $projet->nom() ?></h2>
-            <p><?= Html::limite_caractere($projet->description()) ?></p>
+            <p><?= Form::limite_caractere($projet->description()) ?></p>
           </div>
         </div>
         <a href="<?= $projet->lien() ?>" class="portfolio__btn">Découvrez le projet<i

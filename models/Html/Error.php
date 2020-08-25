@@ -27,41 +27,35 @@ class Error
   }
   public static function valid_edit($name)
   {
-    if (isset($_GET['projet']) || isset($_GET['profile'])) :
-      if ($_GET['projet'] == 'update' || $_GET['profile'] == 'update') :
-        return '<div class="alert alert-success">
+    if ((isset($_GET['update']) and $_GET['update'] == 'ok')) :
+      return '<div class="alert alert-success">
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
           <i class="material-icons">close</i>
         </button>
         <span> ' . $name . ' modifier !</span>
       </div>';
-      endif;
     endif;
   }
   public static function valid_delet($name)
   {
-    if (isset($_GET['projet']) || isset($_GET['profile'])) :
-      if ($_GET['projet'] == 'delet' || $_GET['profile'] == 'delet') :
-        return '<div class="alert alert-success">
+    if ((isset($_GET['delet']) and $_GET['delet'] == 'ok')) :
+      return '<div class="alert alert-success">
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
           <i class="material-icons">close</i>
         </button>
         <span> ' . $name . ' Supprimer !</span>
       </div>';
-      endif;
     endif;
   }
   public static function valid_add($name)
   {
-    if (isset($_GET['projet']) || isset($_GET['profile'])) :
-      if ($_GET['projet'] == 'add' || $_GET['profile'] == 'add') :
-        return '<div class="alert alert-success">
+    if ((isset($_GET['add']) and $_GET['add'] == 'ok')) :
+      return '<div class="alert alert-success">
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
           <i class="material-icons">close</i>
         </button>
         <span> ' . $name . ' Ajouter !</span>
       </div>';
-      endif;
     endif;
   }
 }
