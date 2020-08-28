@@ -93,4 +93,16 @@ foreach ($softskills as  $softskill) : ?>
 </code>
 </pre>
   </section>
+  <section class="contact">
+    <div class="contact__container">
+      <h2 class="contact__title">Me contacter</h2>
+      <form method="POST" class="contact__form">
+        <input type="text" name="name_contact" class="field" placeholder="Your Name" required>
+        <input type="email" name="mail_contact" class="field" placeholder="Your Email" required>
+        <input type="text" name="number_contact" class="field" placeholder="Phone" required>
+        <textarea name="message_contact" placeholder="Message" class="field" required></textarea>
+        <button type="submit" name="sub_contact" class="btn">Envoyer</button>
+      </form>
+    </div>
+  </section>
 </main>

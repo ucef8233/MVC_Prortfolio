@@ -1,4 +1,3 @@
-<?php require_once 'views/templates/includes/nav.php'; ?>
 <div class="container">
   <div class="contact-box">
     <div class="left"></div>

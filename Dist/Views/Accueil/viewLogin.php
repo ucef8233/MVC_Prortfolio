@@ -1,4 +1,3 @@
-<?php require_once 'views/templates/includes/nav.php'; ?>
 <div class="container">
   <form class="login__box" method="POST">
     <input type="text" name="username" class="field" placeholder="Username" required><br>

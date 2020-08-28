@@ -9,7 +9,7 @@
 .container {
   max-width: 90vw;
   margin: 0 auto;
-  padding-top: 15px;
+  padding-top: 35px;
 }
 
 .header {
@@ -122,6 +122,7 @@
     color: $color1;
     font-family: $text_font;
     padding-top: 80px;
+    text-align: center;
 
     h1 {
       font-size: 3rem;
@@ -134,13 +135,15 @@
       padding: 15px;
       background: transparent;
       border-radius: 20px;
-      margin: 0 0 0 50px;
+      margin: 0 auto;
     }
   }
 
   &__btn {
     font-family: $text_font;
     margin-top: 50px;
+    display: flex;
+    justify-content: center;
 
 
     a {
@@ -151,12 +154,6 @@
       margin: 0 20px;
 
     }
-  }
-}
-
-@media (max-width:1440px) {
-  .menu {
-    margin: 0 15Px;
   }
 }
 
@@ -174,6 +171,7 @@
 
     &__btn {
       margin-top: 25px;
+      display: block;
 
       a {
         display: block;
@@ -443,6 +441,60 @@ pre {
   .code {
     &__propos {
       padding: 10px 20px;
+    }
+  }
+}
+
+/////Form
+.contact {
+  background: linear-gradient(to bottom, rgba($color: $color4, $alpha: 0.8) 0%, rgba($color: $color3, $alpha: 0.5) 50%, rgba($color: $color1, $alpha:0.9) 100%), url('../image/4134.jpg') center center/cover no-repeat;
+  height: 520px;
+
+  &__container {
+    max-width: 1024px;
+    margin: 0px auto;
+    padding: 80Px 40px 20px 80px;
+
+    h2 {
+      color: $color1;
+      text-align: center;
+      font-family: 'Courier New', Courier, monospace;
+    }
+  }
+
+  &__form {
+
+    input,
+    textarea {
+      width: 100%;
+      margin-bottom: 15px;
+      border: 1px solid $color2;
+      background: transparent;
+      text-transform: uppercase;
+      height: 40px;
+      font-family: 'Courier New', Courier, monospace;
+      color: $color1;
+      padding: 0 16px;
+      font-size: 14px;
+
+      &:focus {
+        background: rgba($color: #fff, $alpha: 0.1);
+      }
+    }
+
+    textarea {
+      height: 100px;
+      padding: 10px 16px;
+    }
+
+    button {
+      box-shadow: inset 0px 0px 20px 10px rgba($color: $color4, $alpha: 0.8);
+      padding: 10px 30px;
+      color: $color1;
+      font-size: 1em;
+      width: 100%;
+      margin: 0 auto;
+      font-family: 'Courier New', Courier, monospace;
     }
   }
 }
