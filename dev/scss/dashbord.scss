@@ -1,0 +1,166 @@
+@import 'default.scss';
+
+.menu .active {
+  i {
+    color: black;
+  }
+}
+
+.pages {
+  position: sticky;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: rgba($color: #525255, $alpha: 1);
+  z-index: 10;
+
+  img {
+    width: 6em;
+  }
+
+  &__links {
+    width: 20em;
+    display: flex;
+    justify-content: space-between;
+
+    a {
+      font-family: $menu_font;
+      font-weight: 700;
+      font-size: 2.5em;
+      color: white;
+
+      &:hover {
+        color: black;
+      }
+    }
+  }
+}
+
+.menu {
+  position: fixed;
+  top: 30%;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  background-color: rgba($color: #525255, $alpha: 0.8);
+  border-radius: 50px;
+  margin-left: 0.5em;
+  height: 20em;
+  width: 5em;
+  z-index: 11;
+
+  i {
+    font-size: 3em;
+    color: white;
+
+    &:hover {
+      background-color: white;
+      color: black;
+    }
+
+    &:hover+span {
+      display: block;
+      text-align: center;
+      background-color: white;
+      color: black;
+      width: 8em;
+      padding-left: 2em;
+      border-radius: 50px;
+      // z-index: 3;
+    }
+  }
+
+  span {
+    color: rgba($color: #525255, $alpha: 0);
+    font-family: $menu_font;
+    font-size: 2.5em;
+    position: fixed;
+    left: 0.4%;
+    width: 5em;
+    transition: width 2s;
+    z-index: -1;
+  }
+}
+
+@media (max-width: 1440px) {
+  html {
+    font-size: 12px;
+  }
+}
+
+///////////////////////dashbord
+.container__dash {
+  display: flex;
+  justify-content: space-between;
+
+}
+
+.menu__scrol {
+  width: 10%;
+  background-color: rgba($color: #000000, $alpha: 0.8);
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+  height: 88.7vh;
+  padding: 40px;
+
+  i {
+    font-size: 5em;
+    // border: 2px double white;
+  }
+}
+
+.contenu {
+  width: 90%;
+  background-color: white;
+}
+
+td {
+  i {
+    font-size: 2em;
+  }
+
+  .fa-folder-minus {
+    color: red;
+  }
+
+  .fa-user-edit {
+    color: blue;
+  }
+
+}
+
+form {
+  padding: 2em 4em;
+}
+
+label {
+  width: 15em;
+  font-size: 2em;
+}
+
+input[type=text] {
+  padding: 0.6rem 1.2rem;
+  color: white;
+  width: 18em;
+}
+
+input[type=text]:focus {
+  background-color: #525255;
+  padding: 1rem 2rem;
+  color: white;
+}
+
+textarea {
+  min-height: 200px;
+  min-width: 350px;
+}
+
+button {
+  margin-top: 2em;
+}

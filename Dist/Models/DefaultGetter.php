@@ -13,7 +13,7 @@ abstract class DefaultGetter
 
   protected static $_bdd;
 
-  //connexion a la bdd
+  //connexion a la bdd      
 
   private static function setBdd(): void
   {

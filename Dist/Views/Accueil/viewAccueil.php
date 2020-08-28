@@ -1,112 +1,59 @@
-<header id="acceuil" class="header">
+<?php
 
-  <!-- annimation js -->
-
-  <div id="particles-js">
+use App\Models\Html\Form; ?>
+<header class="header">
+  <div class="menu">
+    <a href=""><img src="views/assets/image/Ysw - Copie.png" alt="Logo Portfolio"></a>
+    <i class="animate__animated animate__bounce animate__fast		 animate__repeat-3 fas fa-align-right open"></i>
   </div>
-
-  <!-- navbar -->
-
-  <nav class="pages">
-    <a href="Accueil"> <img src="views/assets/image/Ysb.png" alt=""></a>
-    <div class="pages__links none">
-      <a href="Contact">Contact</a>
-      <a href="<?php
-
-                use App\Models\Html\Form;
-
-                if (!isset($_SESSION['log'])) :
-                  echo "Login";
-                else :
-                  echo "Dashboard";
-                endif; ?>">
-        <?php if (!isset($_SESSION['log'])) :
-          echo "Login";
-        else :
-          echo "Dashboard";
-        endif; ?></a>
-    </div>
-    <div class="page__humberger block">
-
-      <i class="fas fa-align-right"></i>
-    </div>
-  </nav>
-
-  <!-- contenu header -->
-
-
-  <section class="header__contenu">
-    <div class="header__text">
-
-      <h1>Bienvenue sur mon portfolio</h1>
-      <p>Moi c'est Youssef Salim, Développeur Web !</p>
-      <div class="header__btn">
-        <a href="#" class="display__menu--portfolio">Portfolio</a>
-        <a href="#" class="display__menu--propos">A propos</a>
+  <div class="container">
+    <nav class="nav display">
+      <i class="fas fa-times close"></i>
+      <div class="nav__links">
+        <a href="">accueil</a>
+        <a href="">mes projets</a>
+        <a href="">mieu me connaitre</a>
+        <a href="">me contacter</a>
       </div>
+    </nav>
+    <div class="header__text">
+      <h1>Bienvenu sur mon portfolio</h1>
+      <blockquote cite="https://citation-celebre.leparisien.fr/citation/web">
+        <span>“ </span> Si vous avez un peu de patience, vous découvrirez qu'on peut utiliser les immenses ressources
+        du
+        Web pour
+        perdre
+        son temps avec une efficacité que vous n'aviez jamais osé imaginer. <span>„</span>
+      </blockquote>
+    </div>
+    <div class="header__btn">
+      <a href="">Portfolio</a>
+      <a href="">Mieu me connaitre</a>
+    </div>
+  </div>
+</header>
+<main>
+  <section class="portfolio">
+    <div class="portfolio__container">
+      <?php
+      if ($projets) : ?>
+        <?php foreach ($projets as $key => $projet) : ?>
+          <article class="block <?php if ($key % 2 == 0) : echo "block__right";
+                                else : echo "block__left";
+                                endif; ?>">
+            <div class=" block__img">
+              <img src="views/assets/image/<?= $projet->image() ?>" alt="">
+            </div>
+            <div class="block__text">
+              <h2 class="block__title"><?= $projet->nom() ?></h2>
+              <p><?= Form::limite_caractere($projet->description()) ?></p>
+              <a href="<?= $projet->lien() ?>">Voir plus</a>
+            </div>
+          </article>
+        <?php endforeach; ?>
+      <?php endif; ?>
     </div>
   </section>
-</header>
-
-<!-- navigation gauche -->
-
-
-<nav class="menu none">
-  <a class="display__menu display__menu--acceuil active" href="#acceuil"><i class="fas fa-home"></i><span
-      class="span__acceuil">Acceuil</span></a>
-  <a class="display__menu display__menu--portfolio" href="#portfolio"><i class="fas fa-parking"></i><span
-      class="span__portfolio">Portfolio</span></a>
-  <a class="display__menu display__menu--propos" href="#propos"><i class="fas fa-address-card"></i><span
-      class="span__propos">A propos</span></a>
-</nav>
-
-<!-- image social medial -->
-
-
-<div class="header__social">
-  <a href="#"> <img src="views/assets/image/github.svg" alt="github icone"></a>
-  <a href="#"> <img src="views/assets/image/linkedin.svg" alt="linkedin icone"></a>
-  <a href="#"> <img src="views/assets/image/twitter.svg" alt="twitter icone"></a>
-  <a href="#"> <img src="views/assets/image/google.svg" alt="linkedin icone"></a>
-  <a href="#"> <img src="views/assets/image/instagram.svg" alt="twitter icone"></a>
-</div>
-<main>
-  <!-- // section portfolio -->
-  <div id="portfolio" class="main__acceuil ">
-    <section class="portfolio" id="port">
-      <div class="display">
-        <i class="fas fa-folder-open"></i>
-      </div>
-      <div class="sidebar bay">
-        <h2> <i class="fas fa-folder-open"></i> Portfolio</h2>
-        <ul class="projets">
-          <?php if ($projets) : ?>
-          <?php foreach ($projets as $key => $projet) : ?>
-          <li class="onglets" data-anim="<?= $key + 1 ?>"> <i class="fas fa-folder"></i><?= $projet->nom() ?></li>
-          <?php endforeach; ?>
-          <?php endif; ?>
-        </ul>
-      </div>
-      <?php if ($projets) : ?>
-      <?php foreach ($projets as $key => $projet) : ?>
-      <div class="portfolio__cards contenu <?php if ($key == 0) : echo "activeContenu";
-                                                endif; ?> " data-anim="<?= $key + 1 ?>">
-        <div class="portfolio__card">
-          <div class="portfolio__image">
-            <img src="views/assets/image/<?= $projet->image() ?>" alt="img portfolio">
-          </div>
-          <div class="portfolio__text">
-            <h2><?= $projet->nom() ?></h2>
-            <p><?= Form::limite_caractere($projet->description()) ?></p>
-          </div>
-        </div>
-        <a href="<?= $projet->lien() ?>" class="portfolio__btn">Découvrez le projet<i
-            class="fas fa-angle-double-right"></i></a>
-      </div>
-      <?php endforeach; ?>
-      <?php endif; ?>
-    </section>
-  </div>
   <!-- cv -->
   <section id="propos" class="main__propos">
     <pre class="code__propos">

@@ -7,6 +7,7 @@
   <meta name="description" content="Besoin de plus d'info sur moi , Youssef salim développeur web, et etudiant a youcode " />
   <meta name="keywords" content="Portfolio,projet,projets">
   <meta name="author" content="Salim Youssef">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css" />
   <script src="https://kit.fontawesome.com/5ef935a943.js" crossorigin="anonymous"></script>
   <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="views/assets/css/<?= $css ?>.css">
@@ -35,7 +36,6 @@
 <body>
   <?= $content ?>
 </body>
-<script src="views/assets/scripts/acceuil.js"></script>
-<script src="views/assets/scripts/portfolio.js"></script>
+<script src="views/assets/scripts/index.js"></script>
 
 </html>

@@ -1,29 +1,6 @@
-namespace new view
-
-
-
-
-
-
-twichia dial 
-HTML
-
-
-
-Erreur 
-
-
-
-js animation 
+insertion des image //
+js animation
 
 icone hover ital3o lFo9
 
-
-
-location revoi add update 
-
-
-
-
-
-
+location revoi add update

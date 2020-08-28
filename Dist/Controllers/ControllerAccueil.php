@@ -51,7 +51,7 @@ class ControllerAccueil
     $experiances = $this->_experianceManager->getExperiance();
 
 
-    $this->_view = new View('Accueil', 'acceuil');
+    $this->_view = new View('Accueil', 'index');
     $this->_view->generate(array(
       'projets' => $projets,
       'infos' => $infos,
