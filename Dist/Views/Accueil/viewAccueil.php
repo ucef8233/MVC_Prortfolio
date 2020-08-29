@@ -16,17 +16,16 @@ use App\Models\Html\Form; ?>
         <a href="#contact">me contacter</a>
       </div>
     </nav>
-    <div class="header__text">
-      <h1>Bienvenu sur mon portfolio</h1>
-      <blockquote cite="https://citation-celebre.leparisien.fr/citation/web">
-        <span>“ </span> Si vous avez un peu de patience, vous découvrirez qu'on peut utiliser les immenses ressources
+    <div class="header__text reveal">
+      <h1 class="reveal-1">Bienvenu sur mon portfolio</h1>
+      <blockquote class="reveal-1" cite=" https://citation-celebre.leparisien.fr/citation/web"> <span>“ </span> Si vous avez un peu de patience, vous découvrirez qu'on peut utiliser les immenses ressources
         du
         Web pour
         perdre
         son temps avec une efficacité que vous n'aviez jamais osé imaginer. <span>„</span>
       </blockquote>
     </div>
-    <div class="header__btn">
+    <div class="header__btn reveal-3">
       <a href="">Portfolio</a>
       <a href="">Mieu me connaitre</a>
     </div>
@@ -38,16 +37,16 @@ use App\Models\Html\Form; ?>
       <?php
       if ($projets) : ?>
         <?php foreach ($projets as $key => $projet) : ?>
-          <article class="block <?php if ($key % 2 == 0) : echo "block__right";
-                                else : echo "block__left";
-                                endif; ?>">
-            <div class=" block__img">
+          <article class="reveal block <?php if ($key % 2 == 0) : echo "block__right";
+                                        else : echo "block__left";
+                                        endif; ?>">
+            <div class=" block__img reveal-1">
               <img src="views/assets/image/<?= $projet->image() ?>" alt="">
             </div>
             <div class="block__text">
-              <h2 class="block__title"><?= $projet->nom() ?></h2>
-              <p><?= Form::limite_caractere($projet->description()) ?></p>
-              <a href="<?= $projet->lien() ?>">Voir plus</a>
+              <h2 class="block__title  reveal-2"><?= $projet->nom() ?></h2>
+              <p class=" reveal-3"><?= Form::limite_caractere($projet->description()) ?></p>
+              <a class=" reveal-4" href="<?= $projet->lien() ?>">Voir plus</a>
             </div>
           </article>
         <?php endforeach; ?>
@@ -56,7 +55,7 @@ use App\Models\Html\Form; ?>
   </section>
   <!-- cv -->
   <section id="mieu" class="main__propos">
-    <pre class="code__propos">
+    <pre class="code__propos reveal">
 <code class="code">
 <span class="code__ligne"><span class="code__braket1"></span></span>
 <span class="code__ligne">  <span class="code__ligne--vide"> </span></span>
@@ -93,15 +92,15 @@ foreach ($softskills as  $softskill) : ?>
 </code>
 </pre>
   </section>
-  <section id="contact" class="contact">
+  <section id="contact" class="contact ">
     <div class="contact__container">
       <h2 class="contact__title">Me contacter</h2>
-      <form method="POST" class="contact__form">
-        <input type="text" name="name_contact" class="field" placeholder="Your Name" required>
-        <input type="email" name="mail_contact" class="field" placeholder="Your Email" required>
-        <input type="text" name="number_contact" class="field" placeholder="Phone" required>
-        <textarea name="message_contact" placeholder="Message" class="field" required></textarea>
-        <button type="submit" name="sub_contact" class="btn">Envoyer</button>
+      <form method="POST" class="contact__form reveal">
+        <input type="text" name="name_contact" class="field reveal-1" placeholder="Your Name" required>
+        <input type="email" name="mail_contact" class="field reveal-2" placeholder="Your Email" required>
+        <input type="text" name="number_contact" class="field reveal-3" placeholder="Phone" required>
+        <textarea name="message_contact" placeholder="Message" class="field reveal-4" required></textarea>
+        <button type="submit" name="sub_contact" class="btn reveal-5">Envoyer</button>
       </form>
     </div>
   </section>
