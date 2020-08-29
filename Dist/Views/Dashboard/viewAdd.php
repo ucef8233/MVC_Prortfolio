@@ -12,7 +12,7 @@ use App\Models\Html\{Form, Error};
 
           </div>
           <div class="card-body">
-            <form method="POST">
+            <form method="POST" enctype="multipart/form-data">
               <div class="row">
                 <?= Form::input("6", "Mon du projet", "projet_name") ?>
                 <?= Form::input("6", "lien Github", "projet_lien") ?>
@@ -20,7 +20,7 @@ use App\Models\Html\{Form, Error};
               <div class="row">
                 <div class="col-md-12">
                   <div class="custom-file">
-                    <label class="custom-file-label  ">Ajouter une image pour le projet</label>
+                    <label class="custom-file-label">Ajouter une image pour le projet</label>
                     <input type="file" class="custom-file-input" name="projet_image" accept="image/png, image/jpeg" required>
                   </div>
                 </div>

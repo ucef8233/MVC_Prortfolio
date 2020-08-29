@@ -10,11 +10,14 @@ class DashboardSetter extends DefaultGetter
   {
     $nom = addslashes($_POST['projet_name']);
     $lien = $_POST['projet_lien'];
-    $image = $_POST['projet_image'];
+    $image_name = $_FILES['projet_image']['name'];
+    $image_path = 'Views/assets/image/' . $image_name;
+    $image_tmp = $_FILES['projet_image']['tmp_name'];
+    move_uploaded_file($image_tmp, $image_path);
     $description = addslashes($_POST['projet_description']);
     $champs = [
       'nom' => $nom,
-      'image' =>  $image,
+      'image' =>  $image_name,
       'lien' =>  $lien,
       'description' => $description
     ];
