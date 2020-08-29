@@ -1,7 +1,7 @@
 <?php
 
 use App\Models\Html\Form; ?>
-<header id="  accueil" class="header">
+<header id="accueil" class="header">
   <div class="menu">
     <a href=""><img src="views/assets/image/Ysw - Copie.png" alt="Logo Portfolio"></a>
     <i class="animate__animated animate__bounce animate__fast		 animate__repeat-3 fas fa-align-right open"></i>
@@ -26,8 +26,8 @@ use App\Models\Html\Form; ?>
       </blockquote>
     </div>
     <div class="header__btn reveal-3">
-      <a href="">Portfolio</a>
-      <a href="">Mieu me connaitre</a>
+      <a href="#projet">Portfolio</a>
+      <a href="#mieu">Mieu me connaitre</a>
     </div>
   </div>
 </header>
@@ -46,7 +46,7 @@ use App\Models\Html\Form; ?>
             <div class="block__text">
               <h2 class="block__title  reveal-2"><?= $projet->nom() ?></h2>
               <p class=" reveal-3"><?= Form::limite_caractere($projet->description()) ?></p>
-              <a class=" reveal-4" href="<?= $projet->lien() ?>">Voir plus</a>
+              <a class=" reveal-4" target="_blanck" href="<?= $projet->lien() ?>">Voir plus</a>
             </div>
           </article>
         <?php endforeach; ?>
