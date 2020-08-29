@@ -12,19 +12,6 @@ class Error
       endif;
     endif;
   }
-  public static function error_exist()
-  {
-    if (isset($_GET['p']) && isset($_GET['error'])) :
-      if ($_GET['error'] == 'exist') :
-        return '<div class="alert alert-danger">
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-          <i class="material-icons">close</i>
-        </button>
-        <span> Projet deja existant !</span>
-      </div>';
-      endif;
-    endif;
-  }
   public static function valid_edit($name)
   {
     if ((isset($_GET['update']) and $_GET['update'] == 'ok')) :
@@ -36,6 +23,12 @@ class Error
       </div>';
     endif;
   }
+  // public static function envoi_mail()
+  // {
+  //   if ((isset($_GET['mail']) and $_GET['mail'] == 'envoyer')) :
+  //     return   "<script> alert 'mail envoyer '</script>";
+  //   endif;
+  // }
   public static function valid_delet($name)
   {
     if ((isset($_GET['delet']) and $_GET['delet'] == 'ok')) :

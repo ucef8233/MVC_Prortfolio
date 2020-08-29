@@ -9,7 +9,7 @@ use App\Models\Html\{Form, Error};
         <div class="card">
           <div class="card-header card-header-primary">
             <h4 class="card-title">Ajouter un projet</h4>
-            <?= Error::error_exist() ?>
+
           </div>
           <div class="card-body">
             <form method="POST">
@@ -21,8 +21,7 @@ use App\Models\Html\{Form, Error};
                 <div class="col-md-12">
                   <div class="custom-file">
                     <label class="custom-file-label  ">Ajouter une image pour le projet</label>
-                    <input type="file" class="custom-file-input" name="projet_image" accept="image/png, image/jpeg"
-                      required>
+                    <input type="file" class="custom-file-input" name="projet_image" accept="image/png, image/jpeg" required>
                   </div>
                 </div>
               </div>

@@ -26,7 +26,7 @@
     background: rgba($color: $color4, $alpha: 0.6);
 
     img {
-      width: 80px;
+      width: 70px;
     }
 
     i {
@@ -147,11 +147,12 @@
 
 
     a {
-      box-shadow: inset 0px 0px 20px 10px rgba($color: $color4, $alpha: 0.8);
+      box-shadow: inset 0px 0px 20px 10px rgba($color: $color4, $alpha: 1);
       padding: 15px 30px;
       color: $color1;
       font-size: 1.2em;
       margin: 0 20px;
+      border-radius: 5px;
 
     }
   }
@@ -453,7 +454,7 @@ pre {
   &__container {
     max-width: 1024px;
     margin: 0px auto;
-    padding: 80Px 40px 20px 80px;
+    padding: 80Px 40px 20px 40px;
 
     h2 {
       color: $color1;
@@ -492,8 +493,10 @@ pre {
       padding: 10px 30px;
       color: $color1;
       font-size: 1em;
-      width: 100%;
+      border-radius: 20px;
+      width: 150px;
       margin: 0 auto;
+      display: block;
       font-family: 'Courier New', Courier, monospace;
     }
   }

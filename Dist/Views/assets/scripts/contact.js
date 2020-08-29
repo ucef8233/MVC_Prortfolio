@@ -1,1 +1,0 @@
-$(".page__humberger").click(function(){$(".menu").toggleClass("none"),$(".pages__links").toggleClass("none")}),$(".display__menu").click(function(){$(".menu").toggleClass("none"),$(".pages__links").toggleClass("none")});

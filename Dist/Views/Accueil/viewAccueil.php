@@ -1,7 +1,7 @@
 <?php
 
 use App\Models\Html\Form; ?>
-<header class="header">
+<header id="  accueil" class="header">
   <div class="menu">
     <a href=""><img src="views/assets/image/Ysw - Copie.png" alt="Logo Portfolio"></a>
     <i class="animate__animated animate__bounce animate__fast		 animate__repeat-3 fas fa-align-right open"></i>
@@ -10,10 +10,10 @@ use App\Models\Html\Form; ?>
     <nav class="nav display">
       <i class="fas fa-times close"></i>
       <div class="nav__links">
-        <a href="">accueil</a>
-        <a href="">mes projets</a>
-        <a href="">mieu me connaitre</a>
-        <a href="">me contacter</a>
+        <a href="#accueil">accueil</a>
+        <a href="#projet">mes projets</a>
+        <a href="#mieu">mieu me connaitre</a>
+        <a href="#contact">me contacter</a>
       </div>
     </nav>
     <div class="header__text">
@@ -33,7 +33,7 @@ use App\Models\Html\Form; ?>
   </div>
 </header>
 <main>
-  <section class="portfolio">
+  <section id="projet" class="portfolio">
     <div class="portfolio__container">
       <?php
       if ($projets) : ?>
@@ -55,7 +55,7 @@ use App\Models\Html\Form; ?>
     </div>
   </section>
   <!-- cv -->
-  <section id="propos" class="main__propos">
+  <section id="mieu" class="main__propos">
     <pre class="code__propos">
 <code class="code">
 <span class="code__ligne"><span class="code__braket1"></span></span>
@@ -93,7 +93,7 @@ foreach ($softskills as  $softskill) : ?>
 </code>
 </pre>
   </section>
-  <section class="contact">
+  <section id="contact" class="contact">
     <div class="contact__container">
       <h2 class="contact__title">Me contacter</h2>
       <form method="POST" class="contact__form">

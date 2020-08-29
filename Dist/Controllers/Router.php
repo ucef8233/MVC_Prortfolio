@@ -47,14 +47,8 @@ class Router
           case "ControllerDashboard":
             $this->ctrl = new ControllerDashboard($url);
             break;
-          case "ControllerContact":
-            $this->ctrl = new ControllerContact($url);
-            break;
           case "ControllerLogin":
             $this->ctrl = new ControllerLogin($url);
-            break;
-          case "ControllerLogout":
-            $this->ctrl = new ControllerLogout($url);
             break;
           default:
             throw new \Exception("Page introuvable", 1);
