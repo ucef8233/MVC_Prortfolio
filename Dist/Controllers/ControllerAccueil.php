@@ -47,6 +47,9 @@ class ControllerAccueil
     $this->_softskillsManager = new CvManager;
     $this->_experianceManager = new CvManager;
     $this->_contactManager = new LogsManager();
+
+
+
     $mail = $this->_contactManager->getContact();
     $projets = $this->_projetManager->getProjets();
     $infos = $this->_cvManager->getCv();

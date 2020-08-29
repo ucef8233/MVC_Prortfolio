@@ -15,7 +15,7 @@
   <!-- CSS Files -->
   <link href="views/assets/css/material-dashboard.min.css?v=2.1.0" rel="stylesheet" />
   <!-- CSS Just for demo purpose, don't include it in your project -->
-  <link href="../assets/css/demo.css" rel="stylesheet" />
+  <!-- <link href="../assets/css/demo.css" rel="stylesheet" /> -->
   <style>
     td img {
       width: 20vw;

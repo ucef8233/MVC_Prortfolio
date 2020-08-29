@@ -14,7 +14,7 @@ class LogsSetter extends DefaultGetter
       $name = addslashes($_POST['name_contact']);
       $mail = addslashes($_POST['mail_contact']);
       $msg = addslashes($_POST['message_contact']);
-      $to  =  'tonadress@gmail.com';
+      $to  =  'mailportfolio33@gmail.com';
       $subject = "contact Form";
       $message = "Nouveau mail \n
                Nom: $name \n

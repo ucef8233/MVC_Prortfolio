@@ -11,8 +11,8 @@ use App\Models\Html\{Form, Error};
             <h4 class="card-title">Modifier le projet</h4>
           </div>
           <div class="card-body">
-            <form method="POST">
-              <input class="x" type="text" name="id" value="<?= $projets[0]->id() ?>" required>
+            <form method="POST" enctype="multipart/form-data">
+              <input class=" x" type="text" name="id" value="<?= $projets[0]->id() ?>" required>
               <div class="row">
                 <?= Form::input("6", "Mon du projet", "projet_name", $projets[0]->nom()) ?>
                 <?= Form::input("6", "lien Github", "projet_lien", $projets[0]->lien()) ?>
@@ -21,8 +21,7 @@ use App\Models\Html\{Form, Error};
                 <div class="col-md-12">
                   <div class="custom-file">
                     <label class="custom-file-label" for="validatedCustomFile">Ajouter une image pour le projet</label>
-                    <input type="file" class="custom-file-input" id="validatedCustomFile" name="projet_image"
-                      accept="image/png, image/jpeg" required>
+                    <input type="file" class="custom-file-input" id="validatedCustomFile" name="projet_image" accept="image/png, image/jpeg" required>
                   </div>
                 </div>
               </div>
