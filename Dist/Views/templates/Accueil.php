@@ -17,7 +17,7 @@
   </script>';
   endif;
   ?>
-  <link rel="stylesheet" href="views/assets/css/<?= $css ?>.css">
+  <link rel="stylesheet" href="Views/assets/css/<?= $css ?>.css">
   <title>
     <?= $t ?>
   </title>
@@ -43,7 +43,7 @@
 <body>
   <?= $content ?>
 </body>
-<script src="views/assets/scripts/index.js"></script>
+<script src="Views/assets/scripts/index.js"></script>
 
 
 </html>

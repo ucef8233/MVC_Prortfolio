@@ -15,7 +15,8 @@
   <!-- CSS Files -->
   <link href="views/assets/css/material-dashboard.min.css?v=2.1.0" rel="stylesheet" />
   <!-- CSS Just for demo purpose, don't include it in your project -->
-  <!-- <link href="../assets/css/demo.css" rel="stylesheet" /> -->
+  <link href="Views/assets/css/demo.css" rel="stylesheet" />
+
   <style>
     td img {
       width: 20vw;
@@ -51,7 +52,7 @@
 
 <body class="dark-edition">
   <div class="wrapper ">
-    <div class="sidebar" data-color="purple" data-background-color="black" data-image="../views/assets/img/sidebar-2.jpg">
+    <div class="sidebar" data-color="purple" data-background-color="black" data-image="Views/assets/img/sidebar-2.jpg">
       <div class="logo"><a href="Accueil" class="simple-text logo-normal">
           <img src="views/assets/image/Ysb.png" alt="" width="80px">
         </a></div>
@@ -107,7 +108,7 @@
 
     </div>
   </div>
-  <!--   Core JS Files   -->
+  Core JS Files
   <script src="views/assets/scripts/core/jquery.min.js"></script>
   <script src="views/assets/scripts/core/popper.min.js"></script>
   <script src="views/assets/scripts/core/bootstrap-material-design.min.js"></script>
@@ -115,10 +116,6 @@
   <script src="views/assets/scripts/plugins/perfect-scrollbar.jquery.min.js"></script>
   <!-- Place this tag in your head or just before your close body tag. -->
   <script async defer src="https://buttons.github.io/buttons.js"></script>
-  <!--  Google Maps Plugin    -->
-  <!-- Chartist JS -->
-  <script src="../views/assets/js/plugins/chartist.min.js"></script>
-  <!--  Notifications Plugin    -->
   <script src="views/assets/scripts/plugins/bootstrap-notify.js"></script>
   <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
   <script src="views/assets/scripts/material-dashboard.min.js?v=2.1.0"></script>

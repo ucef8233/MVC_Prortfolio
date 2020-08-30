@@ -18,11 +18,16 @@ use App\Models\Html\{Form, Error};
                 <?= Form::input("6", "lien Github", "projet_lien") ?>
               </div>
               <div class="row">
-                <div class="col-md-12">
+                <div class="col-md-6">
                   <div class="custom-file">
-                    <label class="custom-file-label">Ajouter une image pour le projet</label>
-                    <input type="file" class="custom-file-input" name="projet_image" accept="image/png, image/jpeg" required>
+                    <label class="custom-file-label border border-primary rounded">Ajouter une image pour le projet</label>
+                    <input type="file" class="custom-file-input" id="ImageFile" name="projet_image" accept="image/png, image/jpeg" required>
                   </div>
+                </div>
+                <div class="col-md-6">
+                  <?php
+                  echo $_SESSION['a'];
+                  ?>
                 </div>
               </div>
               <div class="row">

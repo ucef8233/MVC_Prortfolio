@@ -90,6 +90,12 @@ foreach ($softskills as  $softskill) : ?>
 <span class="code__ligne"><span class="code__braket2"> </span></span>
 <span class="code__ligne"><span class="code__braket2"></span></span>
 </code>
+<div class="social_media reveal">
+  <a href=""><i class="fab fa-facebook-square reveal-1"></i></a>
+  <a href=""><i class="fab fa-github-square reveal-2"></i></a>
+  <a href=""><i class="fab fa-linkedin reveal-3"></i></a>
+  <a href=""><i class="fab fa-instagram-square reveal-4"></i></a>
+</div>
 </pre>
   </section>
   <section id="contact" class="contact ">
