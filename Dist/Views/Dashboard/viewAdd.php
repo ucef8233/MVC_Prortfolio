@@ -24,11 +24,7 @@ use App\Models\Html\{Form, Error};
                     <input type="file" class="custom-file-input" id="ImageFile" name="projet_image" accept="image/png, image/jpeg" required>
                   </div>
                 </div>
-                <div class="col-md-6">
-                  <?php
-                  echo $_SESSION['a'];
-                  ?>
-                </div>
+
               </div>
               <div class="row">
                 <?= Form::textarea("projet_description") ?>

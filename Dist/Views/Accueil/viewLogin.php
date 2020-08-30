@@ -1,7 +1,7 @@
 <div class="container">
   <div class="contact-box">
     <div class="left">
-      <img src="views/assets/image/Ysw - Copie.png" alt="">
+      <img src="views/assets/image/Ysw - Copie.png" alt="Logo">
     </div>
     <div class="right">
       <form class="login__box" method="POST">

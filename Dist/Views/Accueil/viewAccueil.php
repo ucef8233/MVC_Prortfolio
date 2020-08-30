@@ -41,7 +41,7 @@ use App\Models\Html\Form; ?>
                                         else : echo "block__left";
                                         endif; ?>">
             <div class=" block__img reveal-1">
-              <img src="views/assets/image/<?= $projet->image() ?>" alt="">
+              <img src="views/assets/image/<?= $projet->image() ?>" alt="image_projet">
             </div>
             <div class="block__text">
               <h2 class="block__title  reveal-2"><?= $projet->nom() ?></h2>
@@ -91,10 +91,10 @@ foreach ($softskills as  $softskill) : ?>
 <span class="code__ligne"><span class="code__braket2"></span></span>
 </code>
 <div class="social_media reveal">
-  <a href=""><i class="fab fa-facebook-square reveal-1"></i></a>
-  <a href=""><i class="fab fa-github-square reveal-2"></i></a>
-  <a href=""><i class="fab fa-linkedin reveal-3"></i></a>
-  <a href=""><i class="fab fa-instagram-square reveal-4"></i></a>
+  <a href="https://www.facebook.com/salim.ysf/" target="_blanck"><i class="fab fa-facebook-square reveal-1"></i></a>
+  <a href="https://github.com/ucef8233" target="_blanck"><i class="fab fa-github-square reveal-2"></i></a>
+  <a href="https://www.linkedin.com/in/youssef-salim-226b73197/" target="_blanck"><i class="fab fa-linkedin reveal-3"></i></a>
+  <a href="https://twitter.com/youssef93709037" target="_blanck"><i class="fab fa-twitter-square reveal-4"></i></i></a>
 </div>
 </pre>
   </section>
