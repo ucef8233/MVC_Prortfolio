@@ -28,7 +28,7 @@ class Router
         $controller = ucfirst(strtolower($url[0]));
         /// CREAT CONTROLLER NAME CLASS
         $controllerClass = "Controller" . $controller;
-        /// CREAT CONTROLLER PATH
+        // CREAT CONTROLLER PATH
         // $controllerFile = "Controllers/" . $controllerClass . ".php";
 
 

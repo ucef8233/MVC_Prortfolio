@@ -38,9 +38,8 @@ class DashboardSetter extends DefaultGetter
   protected function Update(int $id)
   {
     $projetId = $_GET['id'];
-    if (!$projetId) :
+    if (!$projetId)
       header('location:Error');
-    endif;
     $result = $this->getOne('projet', 'id', $id, 'Projet');
     if (isset($_POST['edit'])) :
       $champs = $this->Test();
@@ -50,20 +49,12 @@ class DashboardSetter extends DefaultGetter
   }
   private function Test2(string $table)
   {
-    if ($table == "experiances") :
-      $date = addslashes($_POST['experiance_date']);
-      $description =  addslashes($_POST['experiance_desc']);
+    if (($table == "experiances") or $table == "etudes") :
+      $date = addslashes($_POST['date']);
+      $description =  addslashes($_POST['desc']);
       $champs = [
-        'date_experiance' => $date,
-        'description_experiance' =>  $description,
-        'info_admin' => "1"
-      ];
-    elseif ($table == "etudes") :
-      $date = addslashes($_POST['etude_date']);
-      $description =  addslashes($_POST['etude_desc']);
-      $champs = [
-        'date_etude' => $date,
-        'description_etude' =>  $description,
+        'date' => $date,
+        'description' =>  $description,
         'info_admin' => "1"
       ];
     elseif ($table == "langages") :
@@ -73,9 +64,9 @@ class DashboardSetter extends DefaultGetter
         'info_admin' => "1"
       ];
     else :
-      $softskills =  addslashes($_POST['softskills']);
+      $softskill =  addslashes($_POST['softskill']);
       $champs = [
-        'softskills' => $softskills,
+        'softskill' => $softskill,
         'info_admin' => "1"
       ];
     endif;
@@ -83,18 +74,17 @@ class DashboardSetter extends DefaultGetter
   }
   protected  function addCv(string $table): void
   {
-    if ((isset($_POST['add_cv'])) && ($table == "experiances")) :
+    if ($table == "experiances")
       $this->Test2($table);
-    endif;
-    if ((isset($_POST['add_etude'])) && ($table == "etudes")) :
+
+    if ($table == "etudes")
       $this->Test2($table);
-    endif;
-    if ((isset($_POST['add_langage'])) && ($table == "langages")) :
+
+    if ($table == "langages")
       $this->Test2($table);
-    endif;
-    if ((isset($_POST['add_softskills'])) && ($table == "softskills")) :
+
+    if ($table == "softskills")
       $this->Test2($table);
-    endif;
   }
   protected function updateCv(): void
   {

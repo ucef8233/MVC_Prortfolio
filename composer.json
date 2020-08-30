@@ -2,7 +2,7 @@
     "name": "youcode/portfolio",
     "autoload": {
         "psr-4": {
-            "App\\": "../dist"
+            "App\\": "dist"
         }
     },
     "require": {}

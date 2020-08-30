@@ -22,9 +22,8 @@ class Projet
   {
     foreach ($data as $key => $value) {
       $method = 'set' . ucfirst($key);
-      if (method_exists($this, $method)) {
+      if (method_exists($this, $method))
         $this->$method($value);
-      }
     }
   }
 
@@ -33,36 +32,31 @@ class Projet
   public function setId($id)
   {
     $id = (int) $id;
-    if ($id > 0) {
+    if ($id > 0)
       $this->_id = $id;
-    }
   }
 
   public function setNom($nom)
   {
-    if (is_string($nom)) {
+    if (is_string($nom))
       $this->_nom = $nom;
-    }
   }
 
   public function setLien($lien)
   {
-    if (is_string($lien)) {
+    if (is_string($lien))
       $this->_lien = $lien;
-    }
   }
 
   public function setDescription($description)
   {
-    if (is_string($description)) {
+    if (is_string($description))
       $this->_description = $description;
-    }
   }
   public function setImage($image)
   {
-    if (is_string($image)) {
+    if (is_string($image))
       $this->_image = $image;
-    }
   }
 
   //getters

@@ -64,9 +64,9 @@ abstract class DefaultGetter
     $req = self::$_bdd->prepare('SELECT * FROM info_admin AS i INNER JOIN ' . $join . ' AS j ON i.id_admin = j.info_admin');
     $req->execute();
 
-    while ($data = $req->fetch(\PDO::FETCH_ASSOC)) {
+    while ($data = $req->fetch(\PDO::FETCH_ASSOC))
       $var[] = new  Join($data);
-    }
+
     return $var;
     $req->closeCursor();
   }
@@ -103,9 +103,8 @@ abstract class DefaultGetter
     $implodeColumns = implode(', ', array_keys($champs));
     $implodePlaceholder = implode(", :", array_keys($champs));
     $req = self::$_bdd->prepare('INSERT INTO ' . $table . ' (' . $implodeColumns . ') VALUES (:' . $implodePlaceholder . ')');
-    foreach ($champs as $key => $value) :
+    foreach ($champs as $key => $value)
       $req->bindValue(':' . $key, $value);
-    endforeach;
     $reqExec = $req->execute();
     if ($reqExec) :
       if ($table == 'projet') :
@@ -125,9 +124,8 @@ abstract class DefaultGetter
     else :
       $req = self::$_bdd->prepare('UPDATE ' . $table . ' SET nom = :nom,titre = :titre, mail = :mail, adress = :adress WHERE id_admin = ' . $id . '');
     endif;
-    foreach ($champs as $key => $value) :
+    foreach ($champs as $key => $value)
       $req->bindValue(':' . $key, $value);
-    endforeach;
     $reqExec = $req->execute();
     if ($reqExec) :
       if ($table == 'projet') :

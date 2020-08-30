@@ -23,9 +23,8 @@ class Cv
   {
     foreach ($data as $key => $value) {
       $method = 'set' . ucfirst($key);
-      if (method_exists($this, $method)) {
+      if (method_exists($this, $method))
         $this->$method($value);
-      }
     }
   }
 
@@ -33,9 +32,8 @@ class Cv
   public function setId(int  $idadmin): void
   {
     $idadmin = (int) $idadmin;
-    if ($idadmin > 0) {
+    if ($idadmin > 0)
       $this->_idadmin = $idadmin;
-    }
   }
   public function setTitre(string $titre): void
   {

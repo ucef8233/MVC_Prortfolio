@@ -1,3 +1,5 @@
 /dev/
-/vendor/
+vendor/
+composer.phar
 /node_modules/
+

@@ -33,12 +33,12 @@ class View
   {
 
     $content = $this->generateFile($this->_file, $data);
-    if ($this->action  == 'Contact' || $this->action  == 'Login' || $this->action  == 'Error') {
+    if ($this->action  == 'Contact' || $this->action  == 'Login' || $this->action  == 'Error')
       $this->action = 'Accueil';
-    }
-    if ($this->action  == 'Profile' || $this->action  == 'Update' || $this->action  == 'Add') {
+
+    if ($this->action  == 'Profile' || $this->action  == 'Update' || $this->action  == 'Add')
       $this->action = 'Dashboard';
-    }
+
     $view = $this->generateFile('views/templates/' . $this->action . '.php', array('t' => $this->_t, 'content' => $content, 'css' => $this->_css));
     echo $view;
   }

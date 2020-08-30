@@ -17,7 +17,7 @@ use App\Models\Html\Form; ?>
       </div>
     </nav>
     <div class="header__text reveal">
-      <h1 class="reveal-1">Bienvenu sur mon portfolio</h1>
+      <h1 class="reveal-1">Youssef Salim</h1>
       <blockquote class="reveal-1" cite=" https://citation-celebre.leparisien.fr/citation/web"> <span>“ </span> Si vous avez un peu de patience, vous découvrirez qu'on peut utiliser les immenses ressources
         du
         Web pour
@@ -68,7 +68,7 @@ use App\Models\Html\Form; ?>
 <span class="code__ligne"> <span class="code__ligne--vide"> </span></span>
 <?php
 foreach ($experiances as $experiance) : ?>
-<span class="code__ligne">....<span class="code__cle"><?= $experiance->date_experiance() ?></span> <span class="code__value"><?= $experiance->description_experiance() ?></span> </span>
+<span class="code__ligne">....<span class="code__cle"><?= $experiance->date() ?></span> <span class="code__value"><?= $experiance->description() ?></span> </span>
 <?php endforeach; ?>
 <span class="code__ligne"><span class="code__braket2"> </span></span>
 <span class="code__ligne"> <span class="code__ligne--vide"> </span></span>
@@ -79,13 +79,13 @@ foreach ($experiances as $experiance) : ?>
 <span class="code__ligne">..<span class="code__var">SoftSkils</span> [ </span>
 <?php
 foreach ($softskills as  $softskill) : ?>
-<span class="code__ligne">....<span class="code__value"><?= $softskill->softskills() ?></span> </span>
+<span class="code__ligne">....<span class="code__value"><?= $softskill->softskill() ?></span> </span>
 <?php endforeach; ?>
 <span class="code__ligne">..]<span class="code__ligne--vide"> </span></span>
 <span class="code__ligne">..<span class="code__var">Education</span> <span class="code__braket1"></span></span>
 <span class="code__ligne"> <span class="code__ligne--vide"> </span></span>
 <?php foreach ($etudes as  $etude) : ?>
-<span class="code__ligne">....<span class="code__cle"><?= $etude->date_etude(); ?></span> <span class="code__value"><?= $etude->description_etude(); ?></span> </span>
+<span class="code__ligne">....<span class="code__cle"><?= $etude->date(); ?></span> <span class="code__value"><?= $etude->description(); ?></span> </span>
 <?php endforeach; ?>
 <span class="code__ligne"><span class="code__braket2"> </span></span>
 <span class="code__ligne"><span class="code__braket2"></span></span>
